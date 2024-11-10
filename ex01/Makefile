@@ -3,9 +3,9 @@ CC = c++
 #-std=c++98
 CFLAGS = -g -Wall -Wextra -Werror
 
-CPPFILES = megaphone.cpp
+CPPFILES = PhoneBook.cpp 
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = megaphone
+EXECUTABLE = PhoneBook
 
 all : $(EXECUTABLE)
 
