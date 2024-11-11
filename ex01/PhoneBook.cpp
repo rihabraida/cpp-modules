@@ -20,11 +20,23 @@ class   Contact {
         }
         void print_contact(std::string str)
         {
-            int i = 0 ;
-            while(str[i])
-            {
-                std::cout << str[i];
-                i++;
+            int i;
+
+            if(str.length() > 10)
+            {    
+                str[9] = '.';
+                str[10] = '\0';
+                std::cout << str ;
+            }
+            else
+            {    
+                std::cout << str ;
+                i = str.length();
+                while(i < 10)
+                {    
+                    std::cout << " "; 
+                    i++; 
+                }
             }
         }
     };
@@ -66,13 +78,22 @@ int main()
      else if(str == "SEARCH" || str == "search")
      {
         j = 0;
+        // std::cout << "Index   |";
+        // std::cout << " First Name |" ;
+        // std::cout << " Last Name  |" ;
+        // std::cout << " Nickname    " ;
+        // std::cout << "\n";
+
         while(!tt.item[j].first_name.empty() && j < 8)
         {
-            std::cout << "Contact Index: " << j + 1 << "|";
-            std::cout << "First Name: " ;
-            std::cout << tt.item[j].first_name << "|";
-            std::cout << "Last Name: " << tt.item[j].last_name << "|";
-            std::cout << "Nickname: " << tt.item[j].nickname << "\n";
+            std::cout <<  j + 1 << "         ";
+            std::cout << " | ";
+            tt.item[j].print_contact(first_name);
+            std::cout << " | ";
+            tt.item[j].print_contact(last_name);
+            std::cout << " | ";
+            tt.item[j].print_contact(nickname);
+            std::cout << "\n";
             j++;
         }
         std::cout << "Enter a contact index: ";
