@@ -9,6 +9,8 @@ class   Contact {
         std::string nickname;
         std::string phone_number;
 
+        Contact() : first_name(""), last_name(""), 
+                   nickname(""), phone_number("") {}
         Contact(std::string first_name, std::string last_name,std::string nickname,std::string phone_number)
         {
             this->first_name = first_name;
@@ -16,8 +18,15 @@ class   Contact {
             this->nickname = nickname;
             this->phone_number = phone_number;
         }
-        Contact() : first_name(""), last_name(""), 
-                   nickname(""), phone_number("") {}
+        void print_contact(std::string str)
+        {
+            int i = 0 ;
+            while(str[i])
+            {
+                std::cout << str[i];
+                i++;
+            }
+        }
     };
 class PhoneBook {
  public:
@@ -35,9 +44,6 @@ int main()
     int i = 0;
     int j ;
     int index;
-   // std::cout << tt.item[0].first_name;
-    //Contact contact1;
-    //str = NULL;
    while(1)
    {
      std::cout << "If want to add a contact write ADD"<< "\n";
@@ -62,11 +68,11 @@ int main()
         j = 0;
         while(!tt.item[j].first_name.empty() && j < 8)
         {
-            std::cout << "Contact Index: " << j + 1 << "\n";
-            std::cout << "First Name: " << tt.item[j].first_name << "\n";
-            std::cout << "Last Name: " << tt.item[j].last_name << "\n";
+            std::cout << "Contact Index: " << j + 1 << "|";
+            std::cout << "First Name: " ;
+            std::cout << tt.item[j].first_name << "|";
+            std::cout << "Last Name: " << tt.item[j].last_name << "|";
             std::cout << "Nickname: " << tt.item[j].nickname << "\n";
-            std::cout << "Phone: " << tt.item[j].phone_number << "\n";
             j++;
         }
         std::cout << "Enter a contact index: ";
@@ -79,6 +85,8 @@ int main()
             std::cout << "Nickname: " << tt.item[index - 1].nickname << "\n";
             std::cout << "Phone: " << tt.item[index - 1].phone_number << "\n";
         } 
+        else
+            std::cout << "Index out of range" << "\n";
      }
     else if(str == "exit" || str == "EXIT")
     {
