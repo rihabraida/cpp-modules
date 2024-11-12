@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-
+#include <iomanip>
 class   Contact {
     public:
         std::string first_name;
@@ -24,8 +24,8 @@ class   Contact {
 
             if(str.length() > 10)
             {    
+                str = str.substr(0,10);
                 str[9] = '.';
-                str[10] = '\0';
                 std::cout << str ;
             }
             else
@@ -48,6 +48,7 @@ class PhoneBook {
 int main()
 {
     std:: string str ;
+     std:: string text ;
     std:: string first_name ;
     std:: string last_name ;
     std:: string nickname ;
@@ -59,6 +60,8 @@ int main()
    while(1)
    {
      std::cout << "If want to add a contact write ADD"<< "\n";
+     std::cout << "If want to search for contact write SEARCH"<< "\n";
+     std::cout << "If want to exit the program write EXIT"<< "\n";
      std::cin >> str;
      if(str == "add" || str =="ADD")
      {  
@@ -78,27 +81,30 @@ int main()
      else if(str == "SEARCH" || str == "search")
      {
         j = 0;
-        // std::cout << "Index   |";
-        // std::cout << " First Name |" ;
-        // std::cout << " Last Name  |" ;
-        // std::cout << " Nickname    " ;
-        // std::cout << "\n";
+        std::cout << std::setw(10)  << "index";
+        std::cout << "|";
+        std::cout << std::setw(10)  << "First Name";
+        std::cout << "|";
+        std::cout << std::setw(10)  << "Last Name";
+        std::cout << "|";
+        std::cout << std::setw(10)  << "Nickname";
+        std::cout << "\n";
 
         while(!tt.item[j].first_name.empty() && j < 8)
         {
-            std::cout <<  j + 1 << "         ";
-            std::cout << " | ";
-            tt.item[j].print_contact(first_name);
-            std::cout << " | ";
-            tt.item[j].print_contact(last_name);
-            std::cout << " | ";
-            tt.item[j].print_contact(nickname);
+            std::cout <<  "         " << j + 1;
+            std::cout << "|";
+            tt.item[j].print_contact(tt.item[j].first_name);
+            std::cout << "|";
+            tt.item[j].print_contact(tt.item[j].last_name);
+            std::cout << "|";
+            tt.item[j].print_contact(tt.item[j].nickname);
             std::cout << "\n";
             j++;
         }
         std::cout << "Enter a contact index: ";
         std::cin >> index;
-        if(index >= 1 && index <=8)
+        if( index >= 1 && index <=8 && !tt.item[index - 1].first_name.empty() )
         {    
             std::cout << "Contact Index: " << index << "\n";
             std::cout << "First Name: " << tt.item[index - 1].first_name << "\n";
@@ -107,7 +113,11 @@ int main()
             std::cout << "Phone: " << tt.item[index - 1].phone_number << "\n";
         } 
         else
-            std::cout << "Index out of range" << "\n";
+        {    
+            std::cout << "Inter a numeric value between 1 and 8" << "\n";
+            std::cin.clear();
+            std::getline(std::cin, text);
+        }
      }
     else if(str == "exit" || str == "EXIT")
     {
