@@ -48,7 +48,7 @@ class PhoneBook {
 int main()
 {
     std:: string str ;
-     std:: string text ;
+    std:: string text ;
     std:: string first_name ;
     std:: string last_name ;
     std:: string nickname ;
