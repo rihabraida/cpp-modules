@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include<iostream>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -16,6 +17,11 @@ Account::Account(int initial_deposit)
     _nbWithdrawals = 0;
     _nbAccounts++;
     _totalAmount += initial_deposit;
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex <<";";
+    std::cout << "amount:" << _amount  <<";";
+    std::cout << "created\n";
+    
 }
 
 Account::~Account()
@@ -52,14 +58,14 @@ void Account::displayAccountsInfos()
 
 
 
-void makeDeposit(int deposit)
+void Account::makeDeposit(int deposit)
 {
     _amount += deposit;
     _nbDeposits++;
-    _totalAmount +=_deposit;
+    _totalAmount +=deposit;
     _totalNbDeposits++;
 }
-bool makeWithdrawal(int withdrawal)
+bool Account::makeWithdrawal(int withdrawal)
 {
     if(_amount > withdrawal)
     {
@@ -72,14 +78,26 @@ bool makeWithdrawal(int withdrawal)
     else
         return(false);
 }
-int checkAmount() const
+int Account::checkAmount() const
 {
     return(_amount);
 }
-void    displayStatus() const
+void    Account::displayStatus() const
 {
-    std::cout << "index:" << _accountIndex << "\n";
-    std::cout << "amout:" << _amount << "\n";
-    std::cout << "deposits": << _nbDeposits << "\n";
-    std::cout << "withdrawals:" << _nbWithdrawals << "\n";
+    std::cout << "index: " << _accountIndex << "\n";
+    std::cout << "amout: " << _amount << "\n";
+    std::cout << "deposits: " << _nbDeposits << "\n";
+    std::cout << "withdrawals: " << _nbWithdrawals << "\n";
+}
+void   Account:: _displayTimestamp()
+{
+    time_t now = time(0);
+    tm *dt = localtime(&now);
+    std::cout << "[" << 1900 + dt->tm_year ;
+    std::cout << 1 + dt->tm_mon ;
+    std::cout << dt->tm_mday << "_";
+    std::cout << dt->tm_hour ;
+    std::cout << dt->tm_min ;
+    std::cout << dt->tm_sec << "]";
+
 }
