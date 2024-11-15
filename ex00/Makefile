@@ -1,7 +1,7 @@
 
 CC = c++
 #-std=c++98
-CFLAGS = -g -Wall -Wextra -Werror
+CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 CPPFILES = megaphone.cpp
 OFILES = ${CPPFILES:.cpp=.o}
@@ -10,7 +10,7 @@ EXECUTABLE = megaphone
 all : $(EXECUTABLE)
 
 $(EXECUTABLE) : $(OFILES)
-				$(CC) $(CFLAGS) $(OFILES)  -o $(EXECUTABLE)
+				$(CC)  $(OFILES)  -o $(EXECUTABLE)
 
 clean :
 			rm -rf  ${OFILES}

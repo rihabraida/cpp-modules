@@ -3,9 +3,9 @@ CC = c++
 #-std=c++98
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-CPPFILES = PhoneBook.cpp 
+CPPFILES = Account.cpp tests.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = PhoneBook
+EXECUTABLE = Account
 
 all : $(EXECUTABLE)
 
