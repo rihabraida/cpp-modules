@@ -1,21 +1,15 @@
 
 #include <iostream>
+#include <cctype>
 
 void    to_UpperCase(char *str)
 {
     int i ;
-    char tmp;
 
     i = 0;
     while(str[i])
     {
-        if(str[i] >= 97 && str[i] <= 122)
-        {    
-            tmp = str[i] - 32;
-            std::cout << tmp;
-        }
-        else
-            std::cout << str[i];
+        std::cout << (char)toupper(str[i]);
         i++;
     }
     

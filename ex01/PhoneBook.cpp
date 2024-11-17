@@ -1,24 +1,18 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <iomanip>
-class   Contact {
-    public:
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string phone_number;
+#include "PhoneBook.hpp"
 
-        Contact() : first_name(""), last_name(""), 
-                   nickname(""), phone_number("") {}
-        Contact(std::string first_name, std::string last_name,std::string nickname,std::string phone_number)
+
+    int PhoneBook::i = 0;   
+    Contact::Contact() : first_name(""), last_name(""), nickname(""), phone_number("") {}
+    Contact::Contact(int index,std::string first_name, std::string last_name,std::string nickname,std::string phone_number,std::string darkest_secret)
         {
+            this->index = index;
             this->first_name = first_name;
             this->last_name = last_name;
             this->nickname = nickname;
             this->phone_number = phone_number;
+            this->darkest_secret = darkest_secret;
         }
-        void print_contact(std::string str)
+    void Contact::print_contact(std::string str)
         {
             int i;
 
@@ -39,48 +33,41 @@ class   Contact {
                 }
             }
         }
-    };
-class PhoneBook {
- public:
-    Contact item[8];
-};
 
-int main()
-{
-    std:: string str ;
-    std:: string text ;
-    std:: string first_name ;
-    std:: string last_name ;
-    std:: string nickname ;
-    std:: string phone_number;
-    PhoneBook tt ;
-    int i = 0;
-    int j ;
-    int index;
-   while(1)
-   {
-     std::cout << "If want to add a contact write ADD"<< "\n";
-     std::cout << "If want to search for contact write SEARCH"<< "\n";
-     std::cout << "If want to exit the program write EXIT"<< "\n";
-     std::cin >> str;
-     if(str == "add" || str =="ADD")
-     {  
+    void PhoneBook::Add_func()
+    {
+    
+        std:: string first_name ;
+        std:: string last_name ;
+        std:: string nickname ;
+        std:: string phone_number;
+        std:: string darkest_secret;
+
         std::cout << "enter your first name: ";
-        std::cin >> first_name;
+        std::getline(std::cin, first_name);
         std::cout << "enter your last name: ";
-        std::cin >> last_name;
+        std::getline(std::cin, last_name);
         std::cout << "enter your nickname: ";
-        std::cin >> nickname;
+        std::getline(std::cin, nickname);
         std::cout << "enter your phone nmber:";
-        std::cin >> phone_number;
+        std::getline(std::cin, phone_number);
+        std::cout << "enter your darkest secret:";
+        std::getline(std::cin, darkest_secret);
+
         if(!first_name.empty() && !last_name.empty() && !nickname.empty() && !phone_number.empty())
-            tt.item[i++] = Contact(first_name,last_name,nickname,phone_number);
+        {   
+            item[i] = Contact(i + 1,first_name,last_name,nickname,phone_number,darkest_secret);
+            i++;
+        }
         if(i == 8)
             i = 0;
-     }
-     else if(str == "SEARCH" || str == "search")
-     {
-        j = 0;
+    }
+    void PhoneBook::Search_func()
+    {   
+        int j = 0;
+        int index;
+        std::string tmp;
+
         std::cout << std::setw(10)  << "index";
         std::cout << "|";
         std::cout << std::setw(10)  << "First Name";
@@ -90,34 +77,53 @@ int main()
         std::cout << std::setw(10)  << "Nickname";
         std::cout << "\n";
 
-        while(!tt.item[j].first_name.empty() && j < 8)
+        
+        while(!item[j].first_name.empty() && j < 8)
         {
-            std::cout <<  "         " << j + 1;
+            std::cout <<  "         " << item[j].index;
             std::cout << "|";
-            tt.item[j].print_contact(tt.item[j].first_name);
+            item[j].print_contact(item[j].first_name);
             std::cout << "|";
-            tt.item[j].print_contact(tt.item[j].last_name);
+            item[j].print_contact(item[j].last_name);
             std::cout << "|";
-            tt.item[j].print_contact(tt.item[j].nickname);
+            item[j].print_contact(item[j].nickname);
             std::cout << "\n";
             j++;
         }
         std::cout << "Enter a contact index: ";
-        std::cin >> index;
-        if( index >= 1 && index <=8 && !tt.item[index - 1].first_name.empty() )
+        std::getline(std::cin,tmp);
+        index = atoi(tmp.c_str());
+        
+        if( index >= 1 && index <=8 && !item[index - 1].first_name.empty() )
         {    
             std::cout << "Contact Index: " << index << "\n";
-            std::cout << "First Name: " << tt.item[index - 1].first_name << "\n";
-            std::cout << "Last Name: " << tt.item[index - 1].last_name << "\n";
-            std::cout << "Nickname: " << tt.item[index - 1].nickname << "\n";
-            std::cout << "Phone: " << tt.item[index - 1].phone_number << "\n";
+            std::cout << "First Name: " << item[index - 1].first_name << "\n";` 
+            std::cout << "Last Name: " << item[index - 1].last_name << "\n";
+            std::cout << "Nickname: " << item[index - 1].nickname << "\n";
+            std::cout << "Phone: " << item[index - 1].phone_number << "\n";
         } 
         else
-        {    
             std::cout << "Inter a numeric value between 1 and 8" << "\n";
-            std::cin.clear();
-            std::getline(std::cin, text);
-        }
+    }
+int main()
+{
+    std:: string str ;
+    std:: string text ;
+    PhoneBook tt ;
+   
+   while(1)
+   {
+     std::cout << "If want to add a contact write ADD"<< "\n";
+     std::cout << "If want to search for contact write SEARCH"<< "\n";
+     std::cout << "If want to exit the program write EXIT"<< "\n";
+     std::getline(std::cin, str);
+     if(str == "add" || str =="ADD")
+     {  
+       tt.Add_func();
+     }
+     else if(str == "SEARCH" || str == "search")
+     {
+        tt.Search_func();
      }
     else if(str == "exit" || str == "EXIT")
     {
