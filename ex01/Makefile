@@ -3,7 +3,7 @@ CC = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-CPPFILES = PhoneBook.cpp 
+CPPFILES = PhoneBook.cpp Contact.cpp
 OFILES = ${CPPFILES:.cpp=.o}
 EXECUTABLE = PhoneBook
 
