@@ -11,7 +11,9 @@ int main()
      std::cout << "If want to add a contact write ADD"<< "\n";
      std::cout << "If want to search for contact write SEARCH"<< "\n";
      std::cout << "If want to exit the program write EXIT"<< "\n";
-     std::getline(std::cin, str);
+     getline(std::cin, str);
+     if(std::cin.eof())
+          return(1);
      if(str == "add" || str =="ADD")
      {  
        tt.Add_func();

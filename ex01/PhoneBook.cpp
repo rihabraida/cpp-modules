@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-    int PhoneBook::i = 0;   
+    PhoneBook::PhoneBook() : i(0){};   
     
     void PhoneBook::Add_func()
     {
@@ -12,17 +12,17 @@
         std:: string darkest_secret;
 
         std::cout << "enter your first name: ";
-        std::getline(std::cin, first_name);
+        getline(std::cin, first_name);
         std::cout << "enter your last name: ";
-        std::getline(std::cin, last_name);
+        getline(std::cin, last_name);
         std::cout << "enter your nickname: ";
-        std::getline(std::cin, nickname);
+        getline(std::cin, nickname);
         std::cout << "enter your phone nmber:";
-        std::getline(std::cin, phone_number);
+        getline(std::cin, phone_number);
         std::cout << "enter your darkest secret:";
-        std::getline(std::cin, darkest_secret);
+        getline(std::cin, darkest_secret);
 
-        if(!first_name.empty() && !last_name.empty() && !nickname.empty() && !phone_number.empty())
+        if(!first_name.empty() && !last_name.empty() && !nickname.empty() && !phone_number.empty() && !darkest_secret.empty())
         {   
             item[i] = Contact(i + 1,first_name,last_name,nickname,phone_number,darkest_secret);
             i++;
@@ -59,17 +59,18 @@
             j++;
         }
         std::cout << "Enter a contact index: ";
-        std::getline(std::cin,tmp);
+        getline(std::cin,tmp);
         index = atoi(tmp.c_str());
         
         if( index >= 1 && index <= 8 && !item[index - 1].get_FirstName().empty() )
         {    
-            std::cout << "Contact Index: " << index << "\n";
+            std::cout << "Contact Index: " << item[index - 1].get_Index() << "\n";
             std::cout << "First Name: " << item[index - 1].get_FirstName()<< "\n";
             std::cout << "Last Name: " << item[index - 1].get_LastName() << "\n";
             std::cout << "Nickname: " << item[index - 1].get_Nickname() << "\n";
             std::cout << "Phone: " << item[index - 1].get_PhoneNumber() << "\n";
+            std::cout << "Darkest secret: " << item[index -1].get_Darkest_secret() << "\n";
         } 
         else
-            std::cout << "Inter a numeric value between 1 and 8" << "\n";
+            std::cout << "Enter a numeric value between 1 and 8" << "\n";
     }

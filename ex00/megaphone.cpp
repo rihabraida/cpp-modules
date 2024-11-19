@@ -29,7 +29,7 @@ int main(int ac, char **av)
         std::cout << "\n";
     }
     else
-        std::cout << "PLEASE ENTER A PARAMETER TO THE PROGRAM!!!\n";
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 
 }
 
