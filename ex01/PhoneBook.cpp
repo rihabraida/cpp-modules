@@ -46,15 +46,15 @@
         std::cout << "\n";
 
         
-        while(!item[j].first_name.empty() && j < 8)
+        while(!item[j].get_FirstName().empty() && j < 8)
         {
-            std::cout <<  "         " << item[j].index;
+            std::cout <<  "         " << item[j].get_Index();
             std::cout << "|";
-            item[j].print_contact(item[j].first_name);
+            item[j].print_contact(item[j].get_FirstName());
             std::cout << "|";
-            item[j].print_contact(item[j].last_name);
+            item[j].print_contact(item[j].get_LastName());
             std::cout << "|";
-            item[j].print_contact(item[j].nickname);
+            item[j].print_contact(item[j].get_Nickname());
             std::cout << "\n";
             j++;
         }
@@ -62,41 +62,14 @@
         std::getline(std::cin,tmp);
         index = atoi(tmp.c_str());
         
-        if( index >= 1 && index <=8 && !item[index - 1].first_name.empty() )
+        if( index >= 1 && index <= 8 && !item[index - 1].get_FirstName().empty() )
         {    
             std::cout << "Contact Index: " << index << "\n";
-            std::cout << "First Name: " << item[index - 1].first_name << "\n";
-            std::cout << "Last Name: " << item[index - 1].last_name << "\n";
-            std::cout << "Nickname: " << item[index - 1].nickname << "\n";
-            std::cout << "Phone: " << item[index - 1].phone_number << "\n";
+            std::cout << "First Name: " << item[index - 1].get_FirstName()<< "\n";
+            std::cout << "Last Name: " << item[index - 1].get_LastName() << "\n";
+            std::cout << "Nickname: " << item[index - 1].get_Nickname() << "\n";
+            std::cout << "Phone: " << item[index - 1].get_PhoneNumber() << "\n";
         } 
         else
             std::cout << "Inter a numeric value between 1 and 8" << "\n";
     }
-int main()
-{
-    std:: string str ;
-    std:: string text ;
-    PhoneBook tt ;
-   
-   while(1)
-   {
-     std::cout << "If want to add a contact write ADD"<< "\n";
-     std::cout << "If want to search for contact write SEARCH"<< "\n";
-     std::cout << "If want to exit the program write EXIT"<< "\n";
-     std::getline(std::cin, str);
-     if(str == "add" || str =="ADD")
-     {  
-       tt.Add_func();
-     }
-     else if(str == "SEARCH" || str == "search")
-     {
-        tt.Search_func();
-     }
-    else if(str == "exit" || str == "EXIT")
-    {
-        break;
-    }
-   } 
-   
-}

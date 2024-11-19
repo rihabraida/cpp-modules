@@ -32,3 +32,21 @@
                 }
             }
         }
+        int Contact::get_Index(){
+            return(index);
+        }
+        std::string Contact::get_FirstName(){
+            return(first_name);
+        }
+        std::string Contact::get_LastName(){
+            return(last_name);
+        }
+         std::string Contact::get_Nickname(){
+            return(nickname);
+        }
+         std::string Contact::get_PhoneNumber(){
+            return(phone_number);
+        }
+         std::string Contact::get_Darkest_secret(){
+            return(darkest_secret);
+        }

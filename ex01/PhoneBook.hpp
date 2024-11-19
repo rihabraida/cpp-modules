@@ -17,7 +17,6 @@ private:
     static int i;
     void Add_func( );
     void Search_func();
-
 };
 
 #endif
