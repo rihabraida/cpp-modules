@@ -1,5 +1,17 @@
 #include "PhoneBook.hpp"
 
+    int check_str(std::string str )
+    {
+        int i =0;
+        while(str[i])
+        {
+            if(str[i] >= '0' && str[i] <= '9')
+                i++;
+            else
+                return(0);
+        }
+        return(1);
+    }
     PhoneBook::PhoneBook() : i(0){};   
     
     void PhoneBook::Add_func()
@@ -11,7 +23,7 @@
         std:: string phone_number;
         std:: string darkest_secret;
 
-        std::cout << "enter your first name: ";
+        std::cout << "\nenter your first name: ";
         getline(std::cin, first_name);
         std::cout << "enter your last name: ";
         getline(std::cin, last_name);
@@ -30,10 +42,11 @@
         if(i == 8)
             i = 0;
     }
+
     void PhoneBook::Search_func()
     {   
         int j = 0;
-        int index;
+        int index = - 1;
         std::string tmp;
 
         std::cout << std::setw(10)  << "index";
@@ -60,17 +73,19 @@
         }
         std::cout << "Enter a contact index: ";
         getline(std::cin,tmp);
-        index = atoi(tmp.c_str());
-        
+        if(check_str(tmp))
+            index = atoi(tmp.c_str());
         if( index >= 1 && index <= 8 && !item[index - 1].get_FirstName().empty() )
         {    
-            std::cout << "Contact Index: " << item[index - 1].get_Index() << "\n";
+            std::cout << "\nContact Index: " << item[index - 1].get_Index() << "\n";
             std::cout << "First Name: " << item[index - 1].get_FirstName()<< "\n";
             std::cout << "Last Name: " << item[index - 1].get_LastName() << "\n";
             std::cout << "Nickname: " << item[index - 1].get_Nickname() << "\n";
             std::cout << "Phone: " << item[index - 1].get_PhoneNumber() << "\n";
-            std::cout << "Darkest secret: " << item[index -1].get_Darkest_secret() << "\n";
+            std::cout << "Darkest secret: " << item[index -1].get_Darkest_secret() << "\n\n";
         } 
+        else if ( index >= 1 && index <= 8 && item[index - 1].get_FirstName().empty())
+            std::cout << "-------> Empty contact !! \n";
         else
-            std::cout << "Enter a numeric value between 1 and 8" << "\n";
+            std::cout << "-------> Enter a numeric value between 1 and 8 !! \n";
     }

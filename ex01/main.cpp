@@ -8,21 +8,21 @@ int main()
    
    while(1)
    {
-     std::cout << "If want to add a contact write ADD"<< "\n";
+     std::cout << "\n\nIf want to add a contact write ADD"<< "\n";
      std::cout << "If want to search for contact write SEARCH"<< "\n";
-     std::cout << "If want to exit the program write EXIT"<< "\n";
+     std::cout << "If want to exit the program write EXIT"<< "\n\n";
      getline(std::cin, str);
      if(std::cin.eof())
           return(1);
-     if(str == "add" || str =="ADD")
+     if(str =="ADD")
      {  
        tt.Add_func();
      }
-     else if(str == "SEARCH" || str == "search")
+     else if(str == "SEARCH")
      {
         tt.Search_func();
      }
-    else if(str == "exit" || str == "EXIT")
+    else if(str == "EXIT")
     {
         break;
     }

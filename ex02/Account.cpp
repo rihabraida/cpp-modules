@@ -57,7 +57,7 @@ void Account::displayAccountsInfos()
     std::cout<< " accoounts:" << _nbAccounts <<";";
     std::cout << "total:" << _totalAmount <<";";
     std::cout << "deposits:" << _totalNbDeposits <<";";
-    std::cout << " withdrawals:" << _totalNbWithdrawals << std::endl;
+    std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 
@@ -89,7 +89,7 @@ bool Account::makeWithdrawal(int withdrawal)
         _totalAmount -=withdrawal;
         _totalNbWithdrawals++;
 
-        std::cout << "withdrawal:" << _nbDeposits << ";";
+        std::cout << "withdrawal:" << withdrawal << ";";
         std::cout << "amout:" << _amount << ";";
         std::cout << "nb_withdrawals:" << _nbWithdrawals << "\n";
         return(true);

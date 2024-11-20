@@ -10,7 +10,7 @@ EXECUTABLE = megaphone
 all : $(EXECUTABLE)
 
 $(EXECUTABLE) : $(OFILES)
-				$(CC)  $(OFILES)  -o $(EXECUTABLE)
+				$(CC)  $(OFILES)  -o $(EXECUTABLE) $(CXXFLAGS)
 
 clean :
 			rm -rf  ${OFILES}
