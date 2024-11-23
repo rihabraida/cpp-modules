@@ -4,6 +4,6 @@ Zombie* newZombie(std::string name){
 
     Zombie* w1 = new Zombie(name);
 
-   // std::cout << name << "is created dynamically";
+   std::cout << name << "is created dynamically\n";
     return(w1);
 }
