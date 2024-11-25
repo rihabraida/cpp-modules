@@ -2,9 +2,9 @@ CC = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-CPPFILES =  Zombie.cpp zombieHorde.cpp main.cpp
+CPPFILES =  Weapon.cpp HumanB.cpp HumanA.cpp main.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = ZombieHorde
+EXECUTABLE = Humans
 
 all : $(EXECUTABLE)
 
