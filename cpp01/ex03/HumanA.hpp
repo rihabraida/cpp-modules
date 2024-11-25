@@ -11,7 +11,6 @@ class HumanA{
     std::string name;
     Weapon &W;
 public:
-   // HumanA();
     HumanA(std::string name ,Weapon &W);
     void attack();
 
