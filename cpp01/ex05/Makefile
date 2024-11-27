@@ -2,9 +2,9 @@ CC = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-CPPFILES =   main.cpp
+CPPFILES =  Harl.cpp  main.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = ex04
+EXECUTABLE = Harl
 
 all : $(EXECUTABLE)
 

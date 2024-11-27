@@ -2,7 +2,7 @@
 
 Zombie::Zombie(): name("") {};
 
-Zombie::Zombie(std::string name) {
+void Zombie::setName(std::string name) {
 
     this->name = name;
 };
