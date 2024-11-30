@@ -3,13 +3,14 @@
 int main()
 {
     int i ;
-
-    Zombie *Z = ZombieHorde(3,"toto");
-
-
-    for(i = 0; i < 3; i++)
+    int N = 3;
+    Zombie *Z = ZombieHorde(N,"toto");
+    if(Z)
     {
-        Z[i].announce();
+        for(i = 0; i < N; i++)
+        {
+            Z[i].announce();
+        }
     }
    delete [] Z;
 }

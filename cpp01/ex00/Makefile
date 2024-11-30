@@ -1,5 +1,5 @@
 
-CC = c++
+CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
@@ -10,7 +10,7 @@ EXECUTABLE = Zombie
 all : $(EXECUTABLE)
 
 $(EXECUTABLE) : $(OFILES)
-				$(CC) $(OFILES)  -o $(EXECUTABLE) $(CXXFLAGS)
+				$(CXX) $(OFILES)  -o $(EXECUTABLE) $(CXXFLAGS)
 
 clean :
 			rm -rf  ${OFILES}

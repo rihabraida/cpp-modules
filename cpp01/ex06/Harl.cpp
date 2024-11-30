@@ -30,20 +30,27 @@ std::string     Lowercase(std::string level)
 }
 void Harl::complain( std::string level )
 {
+    std::string tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    void(Harl::*tmp)() = NULL;
-   
+    int i = 0;
+    for (i = 0; i < 4; i++)
+    {
+        if(level == tab[i])
+            break;
+    }
     
-    if (level == "DEBUG")
-        tmp = &Harl::debug;
-    else if (level == "INFO")
-        tmp = &Harl::info;
-    else if (level == "WARNING")
-        tmp = &Harl::warning;
-    else if (level == "ERROR")
-        tmp = &Harl::error;
-
-    if(tmp)
-        (this->*tmp)(); 
-
+    switch(i)
+    {
+        case 0:
+                debug();
+        case 1 :
+                info();
+        case 2 :
+                warning();
+        case 3 :
+                error();
+                break; 
+        default:
+            std::cout << "<DEBUG> <INFO> <WARNING> <ERROR>\n";
+    }
 }

@@ -18,7 +18,8 @@ std::string check_line(std::string str,std::string old,std::string newstr)
 int main(int ac, char **av)
 {
 
-    std::string data,str;
+    std::string data,str,tmp;
+    tmp = ".replace";
     if(ac == 4)
     {
         if (std::string(av[2]).empty() || std::string(av[3]).empty()) 
@@ -26,15 +27,15 @@ int main(int ac, char **av)
             std::cerr << "the strings can't be empty" << std::endl;
             return 1;
         }
-        std::string filename = std::string(av[1]) + ".replace" ;
+        std::string filename = std::string(av[1])  + ".replace" ;
 
-        std::fstream file1(av[1], std::ios::in);
+        std::ifstream file1(av[1]);
         if(!file1)
         {    
             std::cerr << "Failed to open the file" << std::endl;
             return(1);
         }
-        std::fstream file2(filename,std::ios::out | std::ios::trunc);
+        std::ofstream file2(filename.c_str());
         if(!file2)
         {    
             std::cerr << "Failed to open the file" << std::endl;
