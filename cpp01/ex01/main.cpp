@@ -11,6 +11,7 @@ int main()
         {
             Z[i].announce();
         }
+        delete [] Z;
     }
-   delete [] Z;
+    return 0;
 }

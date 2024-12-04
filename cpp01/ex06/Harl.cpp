@@ -18,16 +18,6 @@ void Harl::error(void)
     std::cout << "Error...\n";
 }
 
-std::string     Lowercase(std::string level)
-{
-    int i = 0;
-    while(level[i])
-    {
-        level[i] = (char)tolower(level[i]);
-        i++;
-    }
-    return(level);
-}
 void Harl::complain( std::string level )
 {
     std::string tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};

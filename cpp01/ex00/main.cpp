@@ -6,5 +6,4 @@ int main()
     randomChump("soso");
     w1->announce();
     delete w1;
-
 }

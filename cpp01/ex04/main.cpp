@@ -2,11 +2,11 @@
 #include <fstream>
 std::string check_line(std::string str,std::string old,std::string newstr)
 {
-    size_t pos  = 0;
-    while (pos < str.length() )
+    int pos  = -1;
+    while (1)
     {
-        pos = str.find(old);
-        if(pos > str.length())
+        pos = str.find(old, pos + 1);
+        if(pos == -1)
             break;
         str.erase(pos,old.length());
         str.insert(pos,newstr);
@@ -22,7 +22,7 @@ int main(int ac, char **av)
     tmp = ".replace";
     if(ac == 4)
     {
-        if (std::string(av[2]).empty() || std::string(av[3]).empty()) 
+        if (std::string(av[2]).empty()) 
         {
             std::cerr << "the strings can't be empty" << std::endl;
             return 1;
@@ -44,7 +44,9 @@ int main(int ac, char **av)
         while(getline(file1,data))
         {   
             str = check_line(data,av[2],av[3]);
-            file2 << str << std::endl; ;
+            file2 << str;
+            if (!file1.eof())
+                file2 << std::endl;
         }
     }
     else 

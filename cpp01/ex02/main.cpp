@@ -18,19 +18,3 @@ int main()
     std::cout << "The value pointed to by stringREF:  " << stringREF <<std::endl;
 
 }
-
-// int main()
-// {
-//     int a =10;
-//     int b =20;
-
-//     std::cout << a << std::endl;
-//     std::cout << b << std::endl;
-//     int& ref = a;
-//     ref = b;
-//     // ref++;
-//     std::cout << &a << std::endl;
-//     std::cout << &b << std::endl;
-//     std::cout << &ref << std::endl;
-//     std::cout << a << std::endl;
-// }
