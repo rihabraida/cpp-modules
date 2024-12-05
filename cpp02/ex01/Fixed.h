@@ -1,6 +1,7 @@
 #ifndef Fixed_H
 #define Fixed_H
 #include <iostream>
+#include <cmath>
 class   Fixed {
 
     int value;
@@ -17,6 +18,8 @@ public :
     Fixed& operator=(const Fixed &obj);
     ~Fixed();
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 
 
