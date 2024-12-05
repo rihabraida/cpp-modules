@@ -13,14 +13,24 @@ Fixed::Fixed(const Fixed& obj)
     std::cout << "Copy constructor called" << std::endl;
     value = obj.getRawBits();
 }
+
 Fixed::Fixed(int num){
 
-value = num << 8;
+value = num << bits;
 
 }
+
 Fixed::Fixed(float num)
 {
     value = num  * 256;
+}
+
+int Fixed::toInt( void ) const{
+    return (value >> bits);
+}
+
+float Fixed::toFloat( void ) const{
+    return(value / 256);
 }
 
 Fixed& Fixed::operator=(const Fixed &obj)
