@@ -40,7 +40,7 @@ float Fixed::toFloat( void ) const{
 Fixed& Fixed::operator=(const Fixed &obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    value  = obj.getRawBits();
+    this->value  = obj.value;
     return *this;
 }
 
