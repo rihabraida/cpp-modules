@@ -11,7 +11,7 @@ Fixed::Fixed(){
 Fixed::Fixed(const Fixed& obj)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = obj;
+    this->value = obj.value;
 }
 
 Fixed::Fixed(int num){
@@ -39,8 +39,11 @@ float Fixed::toFloat( void ) const{
 
 Fixed& Fixed::operator=(const Fixed &obj)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->value  = obj.value;
+    if(this != &obj)
+    {  
+        std::cout << "Copy assignment operator called" << std::endl;
+        value  = obj.getRawBits();
+    }
     return *this;
 }
 

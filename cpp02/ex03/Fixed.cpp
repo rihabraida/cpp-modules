@@ -9,7 +9,7 @@ Fixed::Fixed(){
 
 Fixed::Fixed(const Fixed& obj)
 {
-    this->value = obj.value;
+    *this = obj;
 }
 
 Fixed::Fixed(int num){
