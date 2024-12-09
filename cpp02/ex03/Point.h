@@ -12,8 +12,8 @@ public:
     Point(const float a, const float b);
     Point(const Point& p);
     Point& operator=(const Point &obj);
-    int get_x() const;
-    int get_y() const;
+    float get_x() const;
+    float get_y() const;
     ~Point();
 
 };

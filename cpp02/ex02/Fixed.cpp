@@ -40,8 +40,7 @@ Fixed& Fixed::operator=(const Fixed &obj)
     return *this;
 }
 
-Fixed::~Fixed() {
-    }
+Fixed::~Fixed() {}
 
 int Fixed::getRawBits() const {
         return value;
@@ -83,13 +82,10 @@ Fixed Fixed::operator*(const Fixed &obj){
 Fixed Fixed::operator/(const Fixed &obj){
     Fixed sum;
     if(obj.value == 0)
-        return(0);
-    sum.value = (this->value / obj.value) >> bits;
+        return(Fixed(0));
+    sum.value = (this->value  >> bits/ obj.value);
     return(sum);
 } 
-
-
-
 
 Fixed Fixed::operator++(int)
 {

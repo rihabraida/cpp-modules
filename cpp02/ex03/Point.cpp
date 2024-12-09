@@ -2,26 +2,21 @@
 
 Point::Point() : x(0),y(0) {}
 Point::Point(const float a, const float b): x(a), y(b){}
-Point::Point(const Point& p){
-    *this = p;
-}
+Point::Point(const Point& p) : x(p.x), y(p.y){}
 Point& Point::operator=(const Point &obj)
 {
     (void)obj;
     return(*this);
  
 }
-int  Point::get_x() const
+float  Point::get_x() const
 {
-    return(x.getRawBits());
+    return(x.toFloat());
 }
 
-int  Point::get_y() const
+float  Point::get_y() const
 {
-    return(x.getRawBits());
+    return(y.toFloat());
 }
 
-Point::~Point()
-{
-
-}
+Point::~Point(){}
