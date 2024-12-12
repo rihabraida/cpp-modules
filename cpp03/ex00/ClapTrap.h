@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-Class ClapTrap{
+class ClapTrap{
 private:
     std::string Name;
     unsigned int Hit_points;
@@ -19,8 +19,7 @@ public:
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    
-     ClapTrap& operator=(const ClapTrap &obj);
+    ClapTrap& operator=(const ClapTrap &obj);
     ~ClapTrap();
 };
 
