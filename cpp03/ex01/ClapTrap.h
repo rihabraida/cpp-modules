@@ -20,7 +20,7 @@ public:
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     
-     ClapTrap& operator=(const ClapTrap &obj);
+    ClapTrap& operator=(const ClapTrap &obj);
     ~ClapTrap();
 };
 

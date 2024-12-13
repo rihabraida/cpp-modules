@@ -2,7 +2,7 @@
 #include "ClapTrap.h"
 
 ClapTrap::ClapTrap():Name(""),Hit_points(10),Energy_points(10),Attack_damage(0){
-    std::cout <<  " Default  constructed is called .\n";
+    std::cout <<  "ClapTrap  Default  constructed is called .\n";
 }
 
 ClapTrap::ClapTrap(std::string Name) : Name(Name), Hit_points(10), Energy_points(10), Attack_damage(0) {
