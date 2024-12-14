@@ -15,7 +15,6 @@ public:
 
     ClapTrap();
     ClapTrap(std::string Name);
-    ClapTrap(std::string Name, unsigned int Hit_points,unsigned int Energy_points , unsigned int Attack_damage); 
     ClapTrap(const ClapTrap &other);
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);

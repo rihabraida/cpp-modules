@@ -1,12 +1,19 @@
 #include "ScavTrap.h"
 
-ScavTrap::ScavTrap() :ClapTrap("", 100, 50, 20){
+ScavTrap::ScavTrap() {
+     Name = "";
+     Hit_points = 100;
+     Energy_points = 50;
+     Attack_damage = 20;
      std::cout <<  "ScavTrap  Default  constructed  .\n";
 }
 
-ScavTrap::ScavTrap(std::string name):  ClapTrap(name,100,50,20)  {
+ScavTrap::ScavTrap(std::string name)  {
    
-
+     Name = name;
+     Hit_points = 100;
+     Energy_points = 50;
+     Attack_damage = 20;
   std::cout << "ScavTrap  parameterized constructed.\n";
 }
 ScavTrap::~ScavTrap() {
@@ -31,4 +38,13 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &obj){
 void ScavTrap::guardGate()
 {
      std::cout << " ScavTrap is now in Gate keeper mode.\n";
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+    if(Energy_points == 0 || Hit_points == 0)
+        return;
+    Energy_points--;
+    std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
+   
 }

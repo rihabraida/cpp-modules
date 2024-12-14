@@ -1,13 +1,19 @@
 #include "FragTrap.h"
 
 
-FragTrap::FragTrap():ClapTrap("", 100, 50, 20){
+FragTrap::FragTrap(){
+     Name = "";
+     Hit_points = 100;
+     Energy_points = 100;
+     Attack_damage = 30;
      std::cout <<  "FragTrap  Default  constructed  .\n";
 }
 
-FragTrap::FragTrap(std::string name):  ClapTrap(name,100,100,30)  {
-   
-
+FragTrap::FragTrap(std::string name){
+     Name = name;
+     Hit_points = 100;
+     Energy_points = 100;
+     Attack_damage = 30; 
   std::cout << "FragTrap  parameterized constructed.\n";
 }
 FragTrap::~FragTrap() {

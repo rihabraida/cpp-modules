@@ -8,11 +8,18 @@ DiamondTrap::DiamondTrap(){
 
 DiamondTrap::DiamondTrap(std::string name){
    
-    this->name = name;
+    Name = name;
     ClapTrap(name + "_clap_name");
     Hit_points = FragTrap::Hit_points;
     Energy_points = ScavTrap::Energy_points;
     Attack_damage = FragTrap::Attack_damage;
 
   std::cout << "DiamondTrap  parameterized constructed.\n";
+}
+
+
+void DiamondTrap::whoAmI()
+{
+  std::cout << "MY name is " << Name << " the name of my baseclass is " << ClapTrap::Name << std::endl;
+
 }

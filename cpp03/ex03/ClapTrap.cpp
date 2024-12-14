@@ -9,9 +9,6 @@ ClapTrap::ClapTrap(std::string Name) : Name(Name), Hit_points(10), Energy_points
      std::cout << "ClapTrap " << Name << " parameterized constructed.\n";
 }
 
-ClapTrap::ClapTrap(std::string Name, unsigned int Hit_points,unsigned int Energy_points , unsigned int Attack_damage): Name(Name), Hit_points(Hit_points), Energy_points(Energy_points), Attack_damage(Attack_damage) {
-     std::cout << "ClapTrap " << Name << " parameterized constructed.\n";
-}
 ClapTrap::~ClapTrap() {
         std::cout << "ClapTrap " << Name << " destructed.\n";
 }
