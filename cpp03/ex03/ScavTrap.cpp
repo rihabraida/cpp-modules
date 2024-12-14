@@ -32,3 +32,4 @@ void ScavTrap::guardGate()
 {
      std::cout << " ScavTrap is now in Gate keeper mode.\n";
 }
+
