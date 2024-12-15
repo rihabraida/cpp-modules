@@ -2,12 +2,13 @@
 #include "ClapTrap.h"
 
 ClapTrap::ClapTrap():Name(""),Hit_points(10),Energy_points(10),Attack_damage(0){
-    std::cout <<  "ClapTrap  Default  constructed is called .\n";
+    std::cout <<  "ClapTrap Default  constructed .\n";
 }
 
 ClapTrap::ClapTrap(std::string Name) : Name(Name), Hit_points(10), Energy_points(10), Attack_damage(0) {
      std::cout << "ClapTrap " << Name << " parameterized constructed.\n";
 }
+
 ClapTrap::~ClapTrap() {
         std::cout << "ClapTrap " << Name << " destructed.\n";
 }
@@ -37,7 +38,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 void ClapTrap::attack(const std::string& target)
 {
     if(Energy_points == 0 || Hit_points == 0)
+    {     
+        std::cout << "ClapTrap " << Name << " cannot attack\n" ;
         return;
+    }
     Energy_points--;
     std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
    
@@ -45,8 +49,10 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     if(Hit_points == 0)
+    {    
+        std::cout << "ClapTrap " << Name << " is already at 0 hit points\n";
         return;
-
+    }
     if(amount >= Hit_points)
     {
          Hit_points = 0;
@@ -65,7 +71,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if(Energy_points == 0 || Hit_points == 0)
     {
-         return;
+        std::cout << "ClapTrap " << Name << " cannot repair because it has no energy\n";
+        return;
     }
     Energy_points--;
     Hit_points += amount; 

@@ -1,11 +1,11 @@
 
 CXX = c++
 
-CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 CPPFILES =  ClapTrap.cpp  main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = ScavTrap
+EXECUTABLE = DiamondTrap
 
 all : $(EXECUTABLE)
 

@@ -5,7 +5,7 @@ CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 CPPFILES =  ClapTrap.cpp  main.cpp ScavTrap.cpp FragTrap.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = ScavTrap
+EXECUTABLE = FragTrap
 
 all : $(EXECUTABLE)
 

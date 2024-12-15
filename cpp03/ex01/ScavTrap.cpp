@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(std::string name)  {
   std::cout << "ScavTrap  parameterized constructed.\n";
 }
 ScavTrap::~ScavTrap() {
-        std::cout << "ScavTrap  destructed.\n";
+        std::cout << "ScavTrap  "<< Name << "  destructed.\n";
 }
 
 
