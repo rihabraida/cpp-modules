@@ -1,7 +1,7 @@
 
 CXX = c++
 
-CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
 CPPFILES =  ClapTrap.cpp  main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OFILES = ${CPPFILES:.cpp=.o}

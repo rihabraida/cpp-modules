@@ -20,7 +20,10 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     std::cout << "ClapTrap " << Name << " copy constructed.\n";
 }
 
-
+std::string ClapTrap::getName()
+{
+    return(Name);
+}
 ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 {
     if(this != &other)
