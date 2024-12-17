@@ -22,3 +22,24 @@ void DiamondTrap::whoAmI()
   std::cout << "MY name is " << Name << " the name of my baseclass is " << ClapTrap::Name << std::endl;
 
 }
+
+DiamondTrap::DiamondTrap(const DiamondTrap &obj):FragTrap(obj),ScavTrap(obj)
+{
+  std::cout << "DiamondTrap  copy constructed.\n";
+}
+
+DiamondTrap&  DiamondTrap::operator=(const DiamondTrap &obj)
+{
+
+  if(this != &obj)
+  {
+    FragTrap::operator=(obj);
+    ScavTrap::operator=(obj);
+  }
+  std::cout << "Copy assignment operator called.\n";
+  return(*this);
+}
+
+DiamondTrap::~DiamondTrap(){
+   std::cout << "DiamondTrap  destructed.\n";
+}
