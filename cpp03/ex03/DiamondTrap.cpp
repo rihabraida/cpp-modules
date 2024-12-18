@@ -1,7 +1,7 @@
 #include "DiamondTrap.h"
 
 
-DiamondTrap::DiamondTrap()  : ClapTrap("Default_clap_name"), FragTrap("default"), ScavTrap("default"), Name("Default")
+DiamondTrap::DiamondTrap()  : ClapTrap("Default"), FragTrap("default"), ScavTrap("default"), Name("Default")
 {
   Hit_points = FragTrap::Hit_points;
   Energy_points = ScavTrap::Energy_points;
@@ -23,7 +23,7 @@ void DiamondTrap::whoAmI()
 
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &obj):FragTrap(obj),ScavTrap(obj)
+DiamondTrap::DiamondTrap(const DiamondTrap &obj):ClapTrap(obj), FragTrap(obj),ScavTrap(obj)
 {
   std::cout << "DiamondTrap  copy constructed.\n";
 }
