@@ -14,7 +14,8 @@ public:
         Animal(const Animal &other);
         Animal& operator=(const Animal &obj);
         ~Animal();
-        void    makeSound();
+        std::string getType() const;
+        void    makeSound() const;
 };
 
 class   Dog: public Animal{
@@ -24,7 +25,7 @@ public:
         Dog(const Dog &other);
         Dog& operator=(const Dog &obj);
         ~Dog();
-        void    makeSound();
+        void    makeSound() const;
 };
 
 class   Cat: public Animal{
@@ -33,7 +34,7 @@ public:
         Cat(const Cat &other);
         Cat& operator=(const Cat &obj);
         ~Cat();
-        void    makeSound();
+        void    makeSound() const;
 };
 
 

@@ -1,28 +1,16 @@
 #include "Animal.h" 
 
 
-int main() {
-    Animal a1;
-       a1.makeSound();  
-    // std::cout << "\n=== Testing Animal Class ===" << std::endl;
-    // {
-    //     Animal a1;
-    //     a1.makeSound();  
-    // }
+int main()
+{
+const Animal* meta = new Animal();
+const Animal* j = new Dog();
+const Animal* i = new Cat();
+std::cout << j->getType() << " " << std::endl;
+std::cout << i->getType() << " " << std::endl;
+i->makeSound(); //will output the cat sound!
+j->makeSound();
+meta->makeSound();
 
-    // std::cout << "\n=== Testing Dog Class ===" << std::endl;
-    // {
-    //     Dog d1;
-    //     d1.makeSound();  
-    // }
-
-    // std::cout << "\n=== Testing Cat Class ===" << std::endl;
-    // {
-    //     Cat c1;
-    //     c1.makeSound(); 
-    // }
-
-    // return 0;
+return 0;
 }
-
-

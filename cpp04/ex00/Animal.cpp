@@ -23,10 +23,15 @@ Animal& Animal:: operator=(const Animal &obj)
 
 Animal::~Animal()
 {
-    std::cout << " destructor called.\n";
+    std::cout << " Animal destructor called.\n";
 }
 
-void Animal::makeSound()
+std::string Animal::getType() const
+{
+    return(type);
+}
+
+void Animal::makeSound() const
 {
  std::cout << "I'm an animal.\n";
 }
@@ -57,7 +62,7 @@ Dog::~Dog() {
     std::cout << "Dog destructor called" << std::endl;
 }
 
-void Dog::makeSound() {
+void Dog::makeSound() const {
     std::cout << "I'm a Dog." << std::endl;
 }
 
@@ -87,6 +92,6 @@ Cat::~Cat() {
     std::cout << "Cat destructor called" << std::endl;
 }
 
-void Cat::makeSound() {
+void Cat::makeSound() const {
     std::cout << "I'm a Cat." << std::endl;
 }
