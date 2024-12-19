@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.h"
 
 class   Animal{
 
@@ -20,6 +21,7 @@ public:
 
 class   Dog: public Animal{
 
+        Brain *br;
 public:
         Dog();
         Dog(const Dog &other);
@@ -29,6 +31,7 @@ public:
 };
 
 class   Cat: public Animal{
+        Brain* br;
 public:
         Cat();
         Cat(const Cat &other);
@@ -36,6 +39,7 @@ public:
         ~Cat();
         void    makeSound() const;
 };
+
 
 
 #endif
