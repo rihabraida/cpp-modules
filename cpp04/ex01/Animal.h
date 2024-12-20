@@ -20,7 +20,7 @@ public:
 };
 
 class   Dog: public Animal{
-
+private:
         Brain *br;
 public:
         Dog();
@@ -31,6 +31,7 @@ public:
 };
 
 class   Cat: public Animal{
+private:
         Brain* br;
 public:
         Cat();

@@ -17,7 +17,7 @@ Animal& Animal:: operator=(const Animal &obj)
     {
         this->type = obj.type;
     }
-    std::cout << "Copy assignment operator called.\n";
+    std::cout << "Animal Copy assignment operator called.\n";
   return(*this);
 }
 
@@ -60,6 +60,7 @@ Dog& Dog::operator=(const Dog &obj) {
 }
 
 Dog::~Dog() {
+    //delete [] br;
     std::cout << "Dog destructor called" << std::endl;
 }
 
@@ -74,6 +75,7 @@ void Dog::makeSound() const {
 
 Cat::Cat() : Animal() {
     this->type = "Cat";
+    br = new  Brain();
     std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -90,6 +92,7 @@ Cat& Cat::operator=(const Cat &obj) {
 }
 
 Cat::~Cat() {
+    delete [] br;
     std::cout << "Cat destructor called" << std::endl;
 }
 
