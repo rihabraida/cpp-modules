@@ -37,7 +37,7 @@ DiamondTrap&  DiamondTrap::operator=(const DiamondTrap &obj)
     FragTrap::operator=(obj);
     ScavTrap::operator=(obj);
   }
-  std::cout << "Copy assignment operator called.\n";
+  std::cout << " DiamondTrap Copy assignment operator .\n";
   return(*this);
 }
 
