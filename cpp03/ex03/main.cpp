@@ -7,10 +7,10 @@ int main()
 
 
     std::cout << "\n--- Printing Attributes Explicitly ---\n";
-   // diamond1.whoAmI();
-   //  std::cout << "Hit Points: " << diamond1.ClapTrap::getName() << std::endl;
-    // std::cout << "Energy Points: " << diamond1.ScavTrap::Energy_points << std::endl;
-    // std::cout << "Attack Damage: " << diamond1.FragTrap::Attack_damage << std::endl;
-    
-   // diamond1.attack("totop");
+    diamond1.whoAmI();
+    diamond1.attack("Diamonda");
+    //diamond1.guardGate();
+   // diamond1.highFivesGuys();
+   // diamond1.takeDamage(30);
+   // diamond1.beRepaired(10);
 }

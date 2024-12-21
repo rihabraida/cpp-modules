@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(std::string name)  {
   std::cout << "ScavTrap  parameterized constructed.\n";
 }
 ScavTrap::~ScavTrap() {
-        std::cout << "ScavTrap  destructed.\n";
+        std::cout << "ScavTrap   destructed.\n";
 }
 
 
@@ -32,7 +32,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &obj){
      if(this != &obj)
           ClapTrap::operator=(obj);
     
-     std::cout << "Copy assignment operator called.\n";
+     std::cout << "ScavTrap Copy assignment operator .\n";
      return *this;
 }
 void ScavTrap::guardGate()
@@ -43,7 +43,10 @@ void ScavTrap::guardGate()
 void ScavTrap::attack(const std::string& target)
 {
     if(Energy_points == 0 || Hit_points == 0)
+     {     
+        std::cout << "ScavTrap " << Name << " cannot attack\n" ;
         return;
+     }
     Energy_points--;
     std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
    

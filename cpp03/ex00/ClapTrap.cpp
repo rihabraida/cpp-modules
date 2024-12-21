@@ -30,7 +30,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
         Energy_points =  other.Energy_points;
         Attack_damage = other.Attack_damage;
     }
-    std::cout << "Copy assignment operator called.\n";
+    std::cout << "ClapTrap Copy assignment operator .\n";
     return(*this);
 }
 
@@ -76,6 +76,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     Energy_points--;
     Hit_points += amount; 
-     std::cout << "ClapTrap " << Name << " repairs itself for " << amount << " hit points and now has " << Hit_points << " hit points.\n";
+     std::cout << "ClapTrap " << Name << " repairs itself with " << amount << " hit points and now has " << Hit_points << " hit points.\n";
 
 }

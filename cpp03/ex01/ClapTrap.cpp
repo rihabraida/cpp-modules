@@ -30,7 +30,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
         Energy_points =  other.Energy_points;
         Attack_damage = other.Attack_damage;
     }
-    std::cout << "Copy assignment operator called.\n";
+    std::cout << "ClapTrap  Copy assignment operator.\n";
     return(*this);
 }
 
@@ -38,7 +38,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 void ClapTrap::attack(const std::string& target)
 {
     if(Energy_points == 0 || Hit_points == 0)
+    {     
+        std::cout << "ClapTrap " << Name << " cannot attack\n" ;
         return;
+    }
     Energy_points--;
     std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
    
@@ -46,8 +49,10 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     if(Hit_points == 0)
+    {    
+        std::cout << "ClapTrap " << Name << " is already at 0 hit points\n";
         return;
-
+    }
     if(amount >= Hit_points)
     {
          Hit_points = 0;
@@ -65,11 +70,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
     if(Energy_points == 0 || Hit_points == 0)
-    {
-         return;
+      {
+        std::cout << "ClapTrap " << Name << " cannot repair because it has no energy\n";
+        return;
     }
     Energy_points--;
     Hit_points += amount; 
-     std::cout << "ClapTrap " << Name << " repairs itself for " << amount << " hit points and now has " << Hit_points << " hit points.\n";
+     std::cout << "ClapTrap " << Name << " repairs itself with " << amount << " hit points and now has " << Hit_points << " hit points.\n";
 
 }

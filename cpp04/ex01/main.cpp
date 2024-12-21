@@ -10,11 +10,11 @@ int main()
         tab[i] = Dog();
         i++;
     }
-    // while(i < 20)
-    // {
-    //     tab[i] = Cat();
-    //     i++;
-    // }
+    while(i < 4)
+    {
+        tab[i] = Cat();
+        i++;
+    }
 
     
 

@@ -83,7 +83,7 @@ Fixed Fixed::operator/(const Fixed &obj){
     Fixed sum;
     if(obj.value == 0)
         return(Fixed(0));
-    sum.value = (this->value  >> bits/ obj.value);
+    sum.value = (this->value << bits) / obj.value;
     return(sum);
 } 
 

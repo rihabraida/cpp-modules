@@ -48,6 +48,8 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(const Dog &other) : Animal(other) {
+
+    br = new Brain(*other.br);
     std::cout << "Dog copy constructor called" << std::endl;
 }
 
@@ -60,7 +62,7 @@ Dog& Dog::operator=(const Dog &obj) {
 }
 
 Dog::~Dog() {
-    //delete [] br;
+    delete br;
     std::cout << "Dog destructor called" << std::endl;
 }
 
@@ -80,6 +82,7 @@ Cat::Cat() : Animal() {
 }
 
 Cat::Cat(const Cat &other) : Animal(other) {
+    br = new Brain(*other.br);
     std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -92,7 +95,7 @@ Cat& Cat::operator=(const Cat &obj) {
 }
 
 Cat::~Cat() {
-    delete [] br;
+    delete br;
     std::cout << "Cat destructor called" << std::endl;
 }
 

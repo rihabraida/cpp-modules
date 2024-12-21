@@ -31,12 +31,10 @@ FragTrap& FragTrap::operator=(const FragTrap &obj){
      if(this != &obj)
           ClapTrap::operator=(obj);
     
-     std::cout << "Copy assignment operator called.\n";
+     std::cout << "FragTrap Copy assignment operator .\n";
      return *this;
 }
 void FragTrap::highFivesGuys(void)
 {
-
-    std::cout << "positive high fives request .\n";
-    
+   std::cout << "Positive high fives request .\n";
 }

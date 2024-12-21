@@ -23,7 +23,7 @@ void DiamondTrap::whoAmI()
 
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &obj):ClapTrap(obj), FragTrap(obj),ScavTrap(obj)
+DiamondTrap::DiamondTrap(const DiamondTrap &obj):ClapTrap(obj), FragTrap(obj),ScavTrap(obj),Name(obj.Name)
 {
   std::cout << "DiamondTrap  copy constructed.\n";
 }
@@ -33,6 +33,7 @@ DiamondTrap&  DiamondTrap::operator=(const DiamondTrap &obj)
 
   if(this != &obj)
   {
+    ClapTrap::operator=(obj);
     FragTrap::operator=(obj);
     ScavTrap::operator=(obj);
   }
