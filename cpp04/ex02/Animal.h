@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.h"
 
 class   Animal{
 
@@ -15,11 +16,12 @@ public:
         Animal& operator=(const Animal &obj);
         virtual ~Animal();
         std::string getType() const;
-        virtual void    makeSound() const;
+        virtual void    makeSound() const = 0;
 };
 
 class   Dog: public Animal{
-
+private:
+        Brain *br;
 public:
         Dog();
         Dog(const Dog &other);
@@ -29,6 +31,8 @@ public:
 };
 
 class   Cat: public Animal{
+private:
+        Brain* br;
 public:
         Cat();
         Cat(const Cat &other);
@@ -36,6 +40,7 @@ public:
         ~Cat();
         void    makeSound() const;
 };
+
 
 
 #endif
