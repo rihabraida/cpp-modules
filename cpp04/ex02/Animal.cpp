@@ -1,32 +1,32 @@
 #include "Animal.h"
 
-Animal::Animal()
+Abstract_Animal::Abstract_Animal()
 {
-    type = "Animal";
-     std::cout << "Animal default constructor called" << std::endl;
+    type = "Abstract_Animal";
+     std::cout << "Abstract_Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &other)
+Abstract_Animal::Abstract_Animal(const Abstract_Animal &other)
 {
      *this = other;
-     std::cout << "Animal copy constructor called" << std::endl;
+     std::cout << "Abstract_Animal copy constructor called" << std::endl;
 }
-Animal& Animal:: operator=(const Animal &obj)
+Abstract_Animal& Abstract_Animal:: operator=(const Abstract_Animal &obj)
 {
     if(this != &obj)
     {
         this->type = obj.type;
     }
-    std::cout << "Animal Copy assignment operator called.\n";
+    std::cout << "Abstract_Animal Copy assignment operator called.\n";
   return(*this);
 }
 
-Animal::~Animal()
+Abstract_Animal::~Abstract_Animal()
 {
-    std::cout << " Animal destructor called.\n";
+    std::cout << " Abstract_Animal destructor called.\n";
 }
 
-std::string Animal::getType() const
+std::string Abstract_Animal::getType() const
 {
     return(type);
 }
@@ -36,13 +36,13 @@ std::string Animal::getType() const
 
 
 
-Dog::Dog() : Animal() {
+Dog::Dog() : Abstract_Animal() {
     this->type = "Dog";
     br = new  Brain();
     std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
+Dog::Dog(const Dog &other) : Abstract_Animal(other) {
 
     br = new Brain(*other.br);
     std::cout << "Dog copy constructor called" << std::endl;
@@ -51,7 +51,7 @@ Dog::Dog(const Dog &other) : Animal(other) {
 Dog& Dog::operator=(const Dog &obj) {
     std::cout << "Dog copy assignment operator called" << std::endl;
     if (this != &obj) {
-        Animal::operator=(obj);
+        Abstract_Animal::operator=(obj);
     }
     return *this;
 }
@@ -70,13 +70,13 @@ void Dog::makeSound() const {
 
 
 
-Cat::Cat() : Animal() {
+Cat::Cat() : Abstract_Animal() {
     this->type = "Cat";
     br = new  Brain();
     std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
+Cat::Cat(const Cat &other) : Abstract_Animal(other) {
     br = new Brain(*other.br);
     std::cout << "Cat copy constructor called" << std::endl;
 }
@@ -84,7 +84,7 @@ Cat::Cat(const Cat &other) : Animal(other) {
 Cat& Cat::operator=(const Cat &obj) {
     std::cout << "Cat copy assignment operator called" << std::endl;
     if (this != &obj) {
-        Animal::operator=(obj);
+        Abstract_Animal::operator=(obj);
     }
     return *this;
 }
