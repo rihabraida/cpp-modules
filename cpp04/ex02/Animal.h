@@ -19,27 +19,8 @@ public:
         virtual void    makeSound() const = 0;
 };
 
-class   Dog: public Abstract_Animal{
-private:
-        Brain *br;
-public:
-        Dog();
-        Dog(const Dog &other);
-        Dog& operator=(const Dog &obj);
-        ~Dog();
-        void    makeSound() const;
-};
 
-class   Cat: public Abstract_Animal{
-private:
-        Brain* br;
-public:
-        Cat();
-        Cat(const Cat &other);
-        Cat& operator=(const Cat &obj);
-        ~Cat();
-        void    makeSound() const;
-};
+
 
 
 
