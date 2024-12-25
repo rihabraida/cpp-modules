@@ -2,8 +2,9 @@
 # define MateriaSource_H
 
 #include "AMateria.h"
+#include "IMateriaSource.h"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 private:
     AMateria* templates[4];

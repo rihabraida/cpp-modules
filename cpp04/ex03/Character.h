@@ -14,9 +14,9 @@ public:
     Character(Character const & other);
     Character& operator=(Character const & other);
     std::string const & getName() const ;
-    virtual void equip(AMateria* m) ;
-    virtual void unequip(int idx) ;
-    virtual void use(int idx, Character& target) ;
+    void equip(AMateria* m) ;
+    void unequip(int idx) ;
+    void use(int idx,   ICharacter& target) ;
     ~Character();
 };
 
