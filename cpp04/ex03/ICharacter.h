@@ -1,8 +1,8 @@
 #ifndef ICharacter_H
 # define ICharacter_H
 
-#include "AMateria.h"
 
+class AMateria;
 class ICharacter
 {
 public:
