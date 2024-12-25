@@ -1,5 +1,9 @@
 #include "Character.h"
 
+Character::Character(): name(""){
+  for (int i = 0; i < 4; i++)
+        inventory[i] = NULL;  
+}
 Character::Character(std::string const & name): name(name){
   for (int i = 0; i < 4; i++)
         inventory[i] = NULL;  
@@ -43,11 +47,11 @@ Character::~Character() {
 
  void Character::equip(AMateria* m){
     for (int i = 0; i < 4; i++) {
-            if (!inventory[i]) {
-                inventory[i] = m;
-                break;
-            }
+        if (!inventory[i]) {
+            inventory[i] = m;
+            break;
         }
+    }
  }
 
 void Character::unequip(int idx) {

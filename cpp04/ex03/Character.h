@@ -9,7 +9,7 @@ private:
     std::string name;
     AMateria* inventory[4];
 public:
-    //Character();
+    Character();
     Character(std::string const & name);
     Character(Character const & other);
     Character& operator=(Character const & other);

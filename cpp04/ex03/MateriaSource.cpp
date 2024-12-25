@@ -8,7 +8,6 @@
 MateriaSource::MateriaSource(MateriaSource const & other) {
         for (int i = 0; i < 4; i++)
         {
-            delete templates[i];
             if (other.templates[i])
                 templates[i] = other.templates[i]->clone();
             else 
@@ -35,12 +34,12 @@ MateriaSource::MateriaSource(MateriaSource const & other) {
  }
 
 void MateriaSource::learnMateria(AMateria* m){
-      for (int i = 0; i < 4; i++) {
-            if (!templates[i]) {
-                templates[i] = m ;
-                break;
-            }
+    for (int i = 0; i < 4; i++) {
+        if (!templates[i]) {
+            templates[i] = m ;
+            break;
         }
+    }
 }
 
 

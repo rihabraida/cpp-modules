@@ -3,9 +3,9 @@ CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
-CPPFILES =  Animal.cpp  main.cpp  Brain.cpp
+CPPFILES =  Animal.cpp  main.cpp  Cat.cpp Dog.cpp Brain.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = Animal
+EXECUTABLE = AbsClass
 
 all : $(EXECUTABLE)
 
