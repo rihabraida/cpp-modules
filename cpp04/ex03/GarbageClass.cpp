@@ -7,6 +7,37 @@
     head = NULL;
  }
 
+
+GarbageClass::GarbageClass(const GarbageClass& other) {
+    head = NULL;
+    Node* current = other.head;
+    while (current) {
+        Add_back(New_Node(current->materia->clone()));
+        current = current->next;
+    }
+}
+
+GarbageClass &GarbageClass::operator=(const GarbageClass& other) {
+    if (this != &other) {
+        Node* current = head;
+        while (current) {
+            Node* next = current->next;
+            delete current->materia;
+            delete current;
+            current = next;
+        }
+        head = NULL;
+
+        current = other.head;
+        while (current) {
+            Add_back(New_Node(current->materia->clone()));
+            current = current->next;
+        }
+    }
+    return *this;
+}
+
+
 Node * GarbageClass::New_Node(AMateria* m){
 
     Node *tmp = new  Node(m);

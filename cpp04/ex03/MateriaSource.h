@@ -3,6 +3,7 @@
 
 #include "AMateria.h"
 #include "IMateriaSource.h"
+#include "GarbageClass.h"
 
 class MateriaSource : public IMateriaSource
 {

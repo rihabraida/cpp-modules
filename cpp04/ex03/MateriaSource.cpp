@@ -1,5 +1,6 @@
 #include "MateriaSource.h"
 
+GarbageClass gb1;
 
  MateriaSource::MateriaSource(){
     for (int i = 0; i < 4; i++) templates[i] = NULL;
@@ -37,9 +38,11 @@ void MateriaSource::learnMateria(AMateria* m){
     for (int i = 0; i < 4; i++) {
         if (!templates[i]) {
             templates[i] = m ;
-            break;
+            return;
         }
     }
+    if (m)
+        gb1.Add_back(gb1.New_Node(m));
 }
 
 
