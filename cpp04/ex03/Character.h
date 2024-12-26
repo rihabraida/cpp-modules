@@ -3,6 +3,7 @@
 
 #include "AMateria.h"
 #include "ICharacter.h"
+#include "GarbageClass.h"
 class Character : public ICharacter
 {
 private:

@@ -2,16 +2,23 @@
 # define GarbageClass_H
 #include "AMateria.h"
 
+struct Node {
+        AMateria* materia;
+        Node* next;
+        Node();
+        Node(AMateria* m);
+};
+
 class GarbageClass{
 
 private:
-    AMateria  *m;
-    AMateria  *next;
+        Node *head;
 public:
     GarbageClass();
-    GarbageClass(const GarbageClass& other );
+    GarbageClass(const GarbageClass& other);
     GarbageClass &operator=(const  GarbageClass& other);
-    AMateria  * Add_back(AMateria  *m);
+    Node * New_Node(AMateria *obj);
+    void Add_back(Node *obj);
     ~GarbageClass();
 
 };

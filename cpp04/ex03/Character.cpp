@@ -1,5 +1,8 @@
 #include "Character.h"
 
+GarbageClass gb;
+
+
 Character::Character(): name(""){
   for (int i = 0; i < 4; i++)
         inventory[i] = NULL;  
@@ -25,9 +28,11 @@ Character& Character::operator=(Character const & other){
     {
         name = other.name;
         for (int i = 0; i < 4; i++) {
-            delete inventory[i];
             if (other.inventory[i]) 
+            {   
+                delete inventory[i];
                 inventory[i] = other.inventory[i]->clone();
+            }
             else
                 inventory[i] = NULL;
         }
@@ -49,13 +54,16 @@ Character::~Character() {
     for (int i = 0; i < 4; i++) {
         if (!inventory[i]) {
             inventory[i] = m;
-            break;
+            return ;
         }
     }
+    if (m)
+        gb.Add_back(gb.New_Node(m));
  }
 
 void Character::unequip(int idx) {
     if (idx >= 0 && idx < 4 && inventory[idx]) {
+        gb.Add_back(gb.New_Node(inventory[idx]));
         inventory[idx] = NULL;
     }
 }
