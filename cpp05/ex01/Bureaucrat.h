@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <exception> 
-#include <stdexcept>
 
 class GradeTooHighException : public std::exception{
 public:
@@ -36,7 +35,8 @@ public:
     int getGrade()const;
     void IncrementGrade();
     void DecrementGrade();
-    
+    void signForm(Form& form);
+    //destructor
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
