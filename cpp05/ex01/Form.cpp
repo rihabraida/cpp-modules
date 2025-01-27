@@ -32,17 +32,17 @@ int Form::getExecuteGrade() const {
     return(executeGrade);
 }
 
-void beSigned(const Bureaucrat& B){
+void Form::beSigned(const Bureaucrat& B){
 
     if(B.getGrade() > signGrade)
         throw GradeTooLowException();  
     isSigned = true;
 }
 
-friend std::ostream& operator<<(std::ostream& os, const Form& form) {
-        os << "Form: " << form.name 
-           << ", signed: " << form.isSigned 
-           << ", sign grade: " << form.signGrade
-           << ", execute grade: " << form.executeGrade;
+std::ostream& operator<<(std::ostream& os, const Form& form) {
+        os << "Form: " << form.getName() 
+           << ", signed: " << form.getSigned()
+           << ", sign grade: " << form.getSignGrade()
+           << ", execute grade: " << form.getExecuteGrade();
         return os;
     }
