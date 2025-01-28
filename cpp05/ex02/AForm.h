@@ -1,7 +1,11 @@
+#ifndef AForm_H
+# define AForm_H
+
 #include <iostream>
 #include <string>
 #include <exception> 
-#include "Bureaucrat.h"
+
+class Bureaucrat;
 
 class   AForm{
 
@@ -10,9 +14,17 @@ class   AForm{
     const int signGrade;
     const int executeGrade;
 public:
+    class GradeTooHighException : public std::exception{
+        public:
+            std::string getMessage() const ; 
+    };
+    class GradeTooLowException : public std::exception{
+        public:
+            std::string getMessage() const ;
+    };
     class FormNotSignedException : public std::exception {
-    public:
-        std::string getMessage() const { return "Form not signed"; }
+        public:
+            std::string getMessage() const ;
     };
     AForm();
     AForm( std::string name,int signGrade,int executeGrade);
@@ -23,8 +35,9 @@ public:
     int getSignGrade() const ;
     int getExecuteGrade() const ;
     void beSigned(const Bureaucrat& bureaucrat);
-    void execute(Bureaucrat const & executor) const = 0;
+    virtual void execute(Bureaucrat const & executor) const = 0;
     //destructor
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& form);
+#endif

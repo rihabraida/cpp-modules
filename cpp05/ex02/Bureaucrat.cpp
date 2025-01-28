@@ -3,22 +3,11 @@
 Bureaucrat::Bureaucrat():name(""),grade(0){}
 
 Bureaucrat::Bureaucrat(std::string name ,int value):name(name){
-    try{
         if(value < 1)
             throw GradeTooHighException();
         if(value > 150)
             throw GradeTooLowException();
-
         grade = value;
-    }
-    catch(GradeTooHighException& e)
-    {
-        std::cout << e.getMessage() <<std::endl;
-    }
-    catch(GradeTooLowException& e)
-    {
-         std::cout << e.getMessage() <<std::endl;
-    }
 
 }
 
@@ -32,28 +21,15 @@ int Bureaucrat::getGrade() const{
 
 void Bureaucrat::IncrementGrade()
 {
-    try{
-        if(grade == 1)
-            throw GradeTooHighException();
-        grade--;
-    }
-    catch(GradeTooHighException& e)
-    {
-        std::cout << e.getMessage() <<std::endl;
-    }
+    if(grade == 1)
+        throw GradeTooHighException();
+    grade--;
 }
 
 void Bureaucrat::DecrementGrade(){
-
-    try{
-        if(grade == 150)
-            throw GradeTooLowException();
-        grade++;
-    }
-    catch(GradeTooLowException& e)
-    {
-         std::cout << e.getMessage() <<std::endl;
-    }
+    if(grade == 150)
+        throw GradeTooLowException();
+    grade++;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
@@ -61,16 +37,22 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
         os <<  obj.getName() << "  bureaucrat grade  " << obj.getGrade() << std::endl;
         return os;
 }
+std::string Bureaucrat::GradeTooHighException::getMessage()const {
+     return("Grade Too High");
+}
+std::string Bureaucrat::GradeTooLowException::getMessage()const {
+     return("Grade Too Low");
+}
 
-Bureaucrat::signForm(Form& form){
-try:
-{
-    form.beSigned(*this);
-    std::cout << name << " signed " << form.getName() << std::endl;
-}
-catch (Form::GradeTooLowException&) {
-        std::cout << name << " couldn't sign " << form.getName() 
-                  << " because grade is too low" << std::endl;
-}
+void Bureaucrat::signForm(AForm& form){
+    try
+    {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.getName() << std::endl;
+    }
+    catch (Bureaucrat::GradeTooLowException) {
+            std::cout << name << " couldn't sign " << form.getName() 
+                    << " because grade is too low" << std::endl;
+    }
 
 }

@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequest",false,72,45),target(target){
+RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequest",72,45),target(target){
 
 }
 

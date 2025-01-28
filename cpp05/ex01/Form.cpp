@@ -1,22 +1,15 @@
 #include "Form.h"
+#include "Bureaucrat.h"
 
-Form::Form(){}
+//Form::Form(){}
 
-Form::Form(std::string name,int signGrade,int executeGrade)try:name(name),isSigned(false),signGrade(signGrade),executeGrade(executeGrade){
+Form::Form(std::string name,int signGrade,int executeGrade):name(name),isSigned(false),signGrade(signGrade),executeGrade(executeGrade){
 
     if (signGrade < 1 || executeGrade < 1)
         throw GradeTooHighException();
     if (signGrade > 150 || executeGrade > 150)
-        throw GradeTooLowException();
+        throw  GradeTooLowException();
     
-}
-catch(GradeTooHighException& e)
-{
-    std::cout << e.getMessage() <<std::endl;
-}
-catch(GradeTooLowException& e)
-{
-        std::cout << e.getMessage() <<std::endl;
 }
 
 std::string Form::getName() const {
@@ -35,7 +28,7 @@ int Form::getExecuteGrade() const {
 void Form::beSigned(const Bureaucrat& B){
 
     if(B.getGrade() > signGrade)
-        throw GradeTooLowException();  
+        throw  GradeTooLowException();  
     isSigned = true;
 }
 
@@ -46,3 +39,9 @@ std::ostream& operator<<(std::ostream& os, const Form& form) {
            << ", execute grade: " << form.getExecuteGrade();
         return os;
     }
+std::string Form::GradeTooHighException::getMessage()const {
+     return("Grade Too High");
+}
+std::string Form::GradeTooLowException::getMessage()const {
+     return("Grade Too Low");
+}

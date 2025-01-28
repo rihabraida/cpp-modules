@@ -3,7 +3,7 @@ CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
-CPPFILES =  Bureaucrat.cpp  main.cpp Form.cpp
+CPPFILES =  Bureaucrat.cpp  AForm.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OFILES = ${CPPFILES:.cpp=.o}
 EXECUTABLE = 	Bureaucrat
 

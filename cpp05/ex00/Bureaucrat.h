@@ -4,23 +4,6 @@
 #include <iostream>
 #include <string>
 #include <exception> 
-#include <stdexcept>
-
-class GradeTooHighException : public std::exception{
-public:
-    std::string getMessage() const 
-    {
-        return("Grade Too High");
-    }
-     
-};
-class GradeTooLowException : public std::exception{
-public:
-   std::string getMessage() const 
-    {
-        return("Grade  Too Low");
-    }
-};
 
 
 class Bureaucrat{
@@ -28,6 +11,14 @@ private:
     const std::string name;
     int grade;
 public:
+    class GradeTooHighException : public std::exception{
+        public:
+            std::string getMessage() const ;
+    };
+    class GradeTooLowException : public std::exception{
+        public:
+            std::string getMessage() const ;
+    };
     Bureaucrat();
     Bureaucrat(std::string name,int grade);
     Bureaucrat(const Bureaucrat& obj);
@@ -36,7 +27,6 @@ public:
     int getGrade()const;
     void IncrementGrade();
     void DecrementGrade();
-    
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

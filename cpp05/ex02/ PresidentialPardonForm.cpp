@@ -1,12 +1,13 @@
 
 #include "PresidentialPardonForm.h"
+#include "Bureaucrat.h"
 
 PresidentialPardonForm::PresidentialPardonForm(){}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("RobotomyRequest",false,25,5),target(target){
+PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("RobotomyRequest",25,5),target(target){
 
 }
 
-void PresidentialPardonForm::execute() const {
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
         std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox\n";
 }

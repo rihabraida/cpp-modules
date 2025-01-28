@@ -1,16 +1,21 @@
 
-
-
 #include "Bureaucrat.h"
+#include "Form.h"
 
-int main()
-{
+int main() {
+    try {
+        Bureaucrat bob("Bob", 50);
+        Form tax("Tax Form", 75, 50);
 
-    Bureaucrat B("kiki",5);
+        std::cout << bob << std::endl;
+        std::cout << tax << std::endl;
 
-    std::cout << "my Grade " << B.getGrade() << std::endl;
-    B.DecrementGrade();
-    std::cout << B;
+        bob.signForm(tax);
+        std::cout << tax << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cerr << "Error occurred" << std::endl;
+    }
 
-
+    return 0;
 }
