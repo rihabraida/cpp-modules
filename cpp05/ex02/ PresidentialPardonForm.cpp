@@ -1,5 +1,5 @@
 
-#include "PresidentialPardonForm.h"
+#include " PresidentialPardonForm.h"
 #include "Bureaucrat.h"
 
 PresidentialPardonForm::PresidentialPardonForm(){}
@@ -9,5 +9,5 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("Roboto
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
-        std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox\n";
+        std::cout << target << " has been pardoned by Zaphod Beeblebrox\n";
 }

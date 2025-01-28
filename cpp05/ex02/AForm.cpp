@@ -47,3 +47,10 @@ std::string AForm::GradeTooLowException::getMessage()const {
 std::string AForm::FormNotSignedException::getMessage()const {
      return( "Form not signed");
 }
+
+void AForm::check_Grade(Bureaucrat const & executor)const{
+     if (getSigned())
+        throw FormNotSignedException();
+    if (executor.getGrade() > getExecuteGrade())
+        throw GradeTooLowException();
+}
