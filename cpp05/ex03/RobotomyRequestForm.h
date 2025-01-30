@@ -3,6 +3,7 @@
 #include "AForm.h"
 #include "Bureaucrat.h"
 #include <bits/stdc++.h>
+
 class RobotomyRequestForm : public AForm{
 private:
     std::string target;

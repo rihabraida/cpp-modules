@@ -1,7 +1,6 @@
 
 #include "ShrubberyCreationForm.h"
 #include "Bureaucrat.h"
-
 ShrubberyCreationForm::ShrubberyCreationForm(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("shrubbery",145,137),target(target){}

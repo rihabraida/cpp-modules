@@ -7,9 +7,10 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequ
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-        
+    
+    check_Grade(executor);
     std::cout << "* drilling noises *\n";
-    if (rand() % 2)
+    if (std::rand() % 2)
         std::cout << target << " has been robotomized successfully\n";
     else
         std::cout << "Robotomy failed\n";

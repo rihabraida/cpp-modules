@@ -1,8 +1,8 @@
 #include "AForm.h"
 #include "Bureaucrat.h"
 
-AForm::AForm():name(""),isSigned(false),signGrade(0),executeGrade(0){}
 
+AForm::AForm():name(""),isSigned(false),signGrade(0),executeGrade(0){}
 AForm::AForm(std::string name,int signGrade,int executeGrade):name(name),isSigned(false),signGrade(signGrade),executeGrade(executeGrade){
 
     if (signGrade < 1 || executeGrade < 1)
