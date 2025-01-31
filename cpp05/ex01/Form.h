@@ -15,14 +15,14 @@ private:
     const int executeGrade;
 public:
     class GradeTooHighException : public std::exception{
-    public:
-        std::string getMessage() const ;
+        public:
+            const char* what() const throw();
     };
     class GradeTooLowException : public std::exception{
-    public:
-        std::string getMessage() const ;
+        public:
+             const char* what() const throw();
     };
-    //Form();
+    Form();
     Form( std::string name,int signGrade,int executeGrade);
     Form(const Form &other);
     Form& operator=(const Form &obj);
@@ -31,7 +31,7 @@ public:
     int getSignGrade() const ;
     int getExecuteGrade() const ;
     void beSigned(const Bureaucrat& B);
-    //destructor
+    ~Form();
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);

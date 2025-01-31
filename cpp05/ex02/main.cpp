@@ -25,8 +25,8 @@ int main() {
         president.signForm(pardon);
         president.executeForm(pardon);
     }
-    catch (AForm::GradeTooLowException& e) {
-        std::cout << "Error: "  << e.getMessage() << std::endl;
+    catch (std::exception& e) {
+        std::cout << "Error: "  << e.what() << std::endl;
     }
     return 0;
 }

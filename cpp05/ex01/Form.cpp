@@ -1,7 +1,10 @@
 #include "Form.h"
 #include "Bureaucrat.h"
 
-//Form::Form(){}
+Form::Form() : name("Default"), isSigned(false), signGrade(150), executeGrade(150){}
+
+Form::Form(const Form &other) : name(other.name), isSigned(other.isSigned), signGrade(other.signGrade), executeGrade(other.executeGrade) {}
+
 
 Form::Form(std::string name,int signGrade,int executeGrade):name(name),isSigned(false),signGrade(signGrade),executeGrade(executeGrade){
 
@@ -11,6 +14,8 @@ Form::Form(std::string name,int signGrade,int executeGrade):name(name),isSigned(
         throw  GradeTooLowException();
     
 }
+
+Form& Form::operator=(const Form &obj){}
 
 std::string Form::getName() const {
     return(name);
@@ -32,6 +37,8 @@ void Form::beSigned(const Bureaucrat& B){
     isSigned = true;
 }
 
+Form::~Form() {}
+
 std::ostream& operator<<(std::ostream& os, const Form& form) {
         os << "Form: " << form.getName() 
            << ", signed: " << form.getSigned()
@@ -39,9 +46,10 @@ std::ostream& operator<<(std::ostream& os, const Form& form) {
            << ", execute grade: " << form.getExecuteGrade();
         return os;
     }
-std::string Form::GradeTooHighException::getMessage()const {
+
+const char*  Form::GradeTooHighException::what() const throw() {
      return("Grade Too High");
 }
-std::string Form::GradeTooLowException::getMessage()const {
+ const char*  Form::GradeTooLowException::what() const throw() {
      return("Grade Too Low");
 }

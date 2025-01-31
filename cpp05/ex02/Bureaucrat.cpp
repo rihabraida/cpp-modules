@@ -1,6 +1,15 @@
 #include "Bureaucrat.h"
 
-Bureaucrat::Bureaucrat():name(""),grade(0){}
+Bureaucrat::Bureaucrat():name("Default"),grade(150){}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name), grade(obj.grade) {}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+        if (this != &obj) {
+            this->grade = obj.grade;
+        }
+        return *this;
+}
 
 Bureaucrat::Bureaucrat(std::string name ,int value):name(name){
         if(value < 1)
@@ -37,12 +46,14 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
         os <<  obj.getName() << "  bureaucrat grade  " << obj.getGrade() << std::endl;
         return os;
 }
-std::string Bureaucrat::GradeTooHighException::getMessage()const {
+ const char*  Bureaucrat::GradeTooHighException::what() const throw() {
      return("Grade Too High");
 }
-std::string Bureaucrat::GradeTooLowException::getMessage()const {
+ const char*  Bureaucrat::GradeTooLowException::what() const throw() {
      return("Grade Too Low");
 }
+
+Bureaucrat::~Bureaucrat() {}
 
 void Bureaucrat::signForm(AForm& form){
     try

@@ -2,16 +2,19 @@
 #include "PresidentialPardonForm.h"
 #include "ShrubberyCreationForm.h"
 #include "RobotomyRequestForm.h"
+
 Intern::Intern(){}
 
-// Intern::Intern(const Intern& other){
+Intern::Intern(const Intern& other){
+    (void)other;
+}
 
-// }
 
+Intern& Intern::operator=(const  Intern &obj){
+    (void)obj;
+    return *this;
+}
 
-// Intern& Intern::operator=(const  Intern &obj){
-
-// }
 
 Intern::~Intern(){}
 
@@ -29,17 +32,15 @@ AForm  *MakeShrubberyCreationForm(std::string target)
 }
 AForm * Intern::makeForm(std::string name,std::string target){
 
-    int i;
-    std::string tab[4] = {"Presidential Pardon", "Robotomy Request", "Shrubbery Creation"};
+    std::string tab[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     AForm*(*form[3])(std::string) = {&MakePresidentialPardonForm ,&MakeRobotomyRequestForm ,&MakeShrubberyCreationForm};
-    AForm* tt;
-    for(i = 0;i < 3;i++)
+
+    for(int i = 0;i < 3;i++)
     {
         if(name == tab[i])
         {
-           tt = form[i](target); 
-           std::cout << " Intern creates " << tt->getName() << std::endl;
-           return(tt);
+           std::cout << " Intern creates " << name << std::endl;
+           return(form[i](target));
         }
     }
     std::cout << " Name passed as parameter doesn’t exist "  << std::endl;
