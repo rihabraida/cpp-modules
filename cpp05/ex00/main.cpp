@@ -12,13 +12,8 @@ int main()
         std::cout << "AFTER DECREMENT " << B << std::endl;
         Bureaucrat B1("COCO",0);
     }
-    catch(Bureaucrat::GradeTooHighException& e)
-    {
-        std::cout << e.getMessage() <<std::endl;
-    }
-    catch(Bureaucrat::GradeTooLowException& e)
-    {
-         std::cout << e.getMessage() <<std::endl;
+    catch (std::exception& e) {
+         std::cerr << "Error: "  << e.what() << std::endl;
     }
 
 }

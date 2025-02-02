@@ -20,11 +20,17 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 
     check_Grade(executor);
     std::ofstream file((target + "_shrubbery").c_str());
-    file << "    *    \n";
-    file << "   ***   \n";
-    file << "  *****  \n";
-    file << " ******* \n";
-    file << "   |||   \n";
+
+    if(file.is_open())
+    {
+        file << "    *    \n";
+        file << "   ***   \n";
+        file << "  *****  \n";
+        file << " ******* \n";
+        file << "   |||   \n";
+    }
+    else
+        std::cout << "Failed to open file." << std::endl;
 
 }
 

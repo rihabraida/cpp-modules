@@ -18,7 +18,6 @@ int main() {
         std::cout << "\nTesting forms with intern:\n";
         intern.signForm(shrub);
         intern.executeForm(shrub);
-
         std::cout << "\nTesting forms with president:\n";
         president.signForm(robot);
         president.executeForm(robot);
@@ -26,7 +25,7 @@ int main() {
         president.executeForm(pardon);
     }
     catch (std::exception& e) {
-        std::cout << "Error: "  << e.what() << std::endl;
+        std::cerr << "Error: "  << e.what() << std::endl;
     }
     return 0;
 }

@@ -14,7 +14,7 @@ int main() {
         std::cout << tax << std::endl;
     }
     catch (std::exception& e) {
-        std::cerr << "Error occurred" << std::endl;
+        std::cerr << "Error: "  << e.what() << std::endl;
     }
 
     return 0;
