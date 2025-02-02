@@ -37,7 +37,7 @@ public:
     void beSigned(const Bureaucrat& bureaucrat);
     void check_Grade(Bureaucrat const & executor)const;
     virtual void execute(Bureaucrat const & executor) const = 0;
-    ~AForm(); 
+    virtual ~AForm(); 
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& form);

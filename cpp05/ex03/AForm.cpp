@@ -13,7 +13,11 @@ AForm::AForm(std::string name,int signGrade,int executeGrade):name(name),isSigne
         throw GradeTooLowException();
 }
 
-AForm& AForm::operator=(const AForm &obj){}
+AForm& AForm::operator=(const AForm &obj){
+
+       (void)obj;
+      return *this;
+}
 
 std::string AForm::getName() const {
     return(name);

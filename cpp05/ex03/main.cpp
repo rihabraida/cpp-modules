@@ -9,6 +9,8 @@
 int main() {
     Intern someRandomIntern;
     AForm* rrf;
-    rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    std::cout << rrf ;
+    delete rrf;
     return 0;
 }
