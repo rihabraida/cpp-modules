@@ -7,10 +7,12 @@
 #include "Intern.h"
 
 int main() {
+
     Intern someRandomIntern;
-    AForm* rrf;
+    AForm* rrf = NULL;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    std::cout << rrf ;
+    if(rrf)
+        std::cout << *rrf ;
     delete rrf;
     return 0;
 }

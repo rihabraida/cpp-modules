@@ -15,7 +15,10 @@ Form::Form(std::string name,int signGrade,int executeGrade):name(name),isSigned(
     
 }
 
-Form& Form::operator=(const Form &obj){}
+Form& Form::operator=(const Form &obj){
+        (void)obj;
+        return *this;
+}
 
 std::string Form::getName() const {
     return(name);

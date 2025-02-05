@@ -15,12 +15,13 @@ int main() {
         RobotomyRequestForm robot("Bender");
         PresidentialPardonForm pardon("Criminal");
 
-        std::cout << "\nTesting forms with intern:\n";
+        std::cout << "\nTesting forms with intern:\n\n";
         intern.signForm(shrub);
         intern.executeForm(shrub);
-        std::cout << "\nTesting forms with president:\n";
+        std::cout << "\n\nTesting forms with president:\n\n";
         president.signForm(robot);
         president.executeForm(robot);
+        std::cout << "\n\n";
         president.signForm(pardon);
         president.executeForm(pardon);
     }

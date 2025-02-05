@@ -45,7 +45,7 @@ std::ostream& operator<<(std::ostream& os, const AForm& form) {
         os << "AForm: " << form.getName() 
            << ", signed: " << form.getSigned()
            << ", sign grade: " << form.getSignGrade()
-           << ", execute grade: " << form.getExecuteGrade();
+           << ", execute grade: " << form.getExecuteGrade() << std::endl;
         return os;
     }
 const char*  AForm::GradeTooHighException::what() const throw() {
