@@ -42,9 +42,10 @@ Type      ScalarConverter::DetectType(const std::string& literal){
 
 
 
- void    ScalarConverter::convert(const std::string &str) {
+ void    ScalarConverter::convert(const std::string &literal) {
 
-    Type type = detectType(literal);
+    Type type = DetectType(literal);
+
         if (type == INVALID) {
             std::cout << "Invalid input" << std::endl;
             return;
@@ -54,7 +55,7 @@ Type      ScalarConverter::DetectType(const std::string& literal){
         if (type == CHAR) {
             value = literal[1];
         } else {
-            value = std::strtod(literal.c_str(), nullptr);
+            value = strtod(literal.c_str(),NULL);
         }
 
         std::cout << "char: ";
@@ -86,7 +87,7 @@ Type      ScalarConverter::DetectType(const std::string& literal){
             std::cout << "nanf";
         } 
         else {
-            std::cout << static_cast<float>(value) << "f";
+            std::cout  << static_cast<float>(value) << "f";
         }
         std::cout << std::endl;
 
@@ -99,7 +100,7 @@ Type      ScalarConverter::DetectType(const std::string& literal){
         } 
         else if (std::isnan(value)) {
             std::cout << "nan";
-        } e
+        }
         else {
             std::cout << value;
         }

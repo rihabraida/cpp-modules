@@ -3,9 +3,9 @@ CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
-CPPFILES =  main.cpp ScalarConverter.cpp
+CPPFILES =  main.cpp Serializer.cpp 
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = ScalerConverter
+EXECUTABLE = Serializer
 
 all : $(EXECUTABLE)
 
