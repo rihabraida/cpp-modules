@@ -1,12 +1,25 @@
 #include "ScalarConverter.h"
 
 
-Type      ScalarConverter::DetectType(const std::string& literal){
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &obj) {
+    (void)obj;
+}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &obj) {
+    (void)obj;
+    return(*this);
+}
+
+Type    ScalarConverter::DetectType(const std::string& literal){
 
     bool isDecimal = false;
     bool isFloat = false;
     
-    if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'')
+    if (literal.length() == 1 && !isdigit(literal[0])  && isprint(literal[0]) )
             return CHAR;
     if (literal == "nan" || literal == "+inf" || literal == "-inf")
             return DOUBLE;
@@ -64,7 +77,7 @@ int check_zero(const char *literal)
 
         double value;
         if (type == CHAR) {
-            value = literal[1];
+            value = literal[0];
         } else {
             value = strtod(literal.c_str(),NULL);
             
@@ -104,6 +117,8 @@ int check_zero(const char *literal)
             std::cout  << static_cast<float>(value) ;
             if(check_zero(strchr(literal.c_str(), '.')))
                 std::cout << ".0f";
+            else
+                std::cout << "f";
         }
         std::cout << std::endl;
 

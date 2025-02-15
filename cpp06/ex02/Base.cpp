@@ -10,6 +10,8 @@ Base::~Base(){}
 
 
 Base* generate(void) {
+
+    srand(time(0));
     int choice = rand() % 3;
     if (choice == 0) return new A();
     if (choice == 1) return new B();
@@ -35,18 +37,17 @@ void identify(Base& p){
         A& a = dynamic_cast<A&>(p);
         std::cout << "Object of type A" << std::endl;
         return(void)a;
-    } catch (...) {}
-
+    } catch (std::exception& bc) {}
     try {
         B& b = dynamic_cast<B&>(p);
         std::cout << "Object of type B" << std::endl;
         return(void)b;
-    } catch (...) {}
+    } catch (std::exception& bc) {}
 
     try {
         C& c= dynamic_cast<C&>(p);
         std::cout << "Object of type C" << std::endl;
         return(void)c;
-    } catch (...) {}
+    } catch (std::exception& bc) {}
     
 }

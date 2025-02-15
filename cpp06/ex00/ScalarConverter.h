@@ -17,17 +17,14 @@ INVALID
 };
 
 class ScalarConverter{
-
-public:
+private:
         ScalarConverter();
-        ScalarConverter(std::string str);
         ScalarConverter(const ScalarConverter &obj);
+        ~ScalarConverter();
         ScalarConverter& operator=(const ScalarConverter &obj);
+public:
         static Type      DetectType(const std::string& literal);
         static void    convert(const std::string& str);
-        ~ScalarConverter();
-        
-
 };
 
 
