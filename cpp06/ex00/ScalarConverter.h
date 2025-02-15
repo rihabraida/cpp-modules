@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <limits>
 #include <cmath>
+#include <cstring>
 
 enum Type {
 CHAR,

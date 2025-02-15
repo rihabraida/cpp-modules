@@ -40,6 +40,17 @@ Type      ScalarConverter::DetectType(const std::string& literal){
     return(INT);
 }
 
+int check_zero(const char *literal)
+{
+    if(!literal)
+        return(1);
+    for(int i = 1; literal[i] ; i++)
+    {
+        if( literal[i] != '0' && literal[i] != 'f')
+            return(0);
+    }
+    return(1);
+}
 
 
  void    ScalarConverter::convert(const std::string &literal) {
@@ -56,6 +67,7 @@ Type      ScalarConverter::DetectType(const std::string& literal){
             value = literal[1];
         } else {
             value = strtod(literal.c_str(),NULL);
+            
         }
 
         std::cout << "char: ";
@@ -69,7 +81,9 @@ Type      ScalarConverter::DetectType(const std::string& literal){
         std::cout << std::endl;
 
         std::cout << "int: ";
-        if (std::isnan(value) || std::isinf(value)) {
+        if (std::isnan(value) || std::isinf(value) || 
+            value > static_cast<double>(std::numeric_limits<int>::max()) || 
+            value < static_cast<double>(std::numeric_limits<int>::min())) {
             std::cout << "impossible";
         } else {
             std::cout << static_cast<int>(value);
@@ -87,7 +101,9 @@ Type      ScalarConverter::DetectType(const std::string& literal){
             std::cout << "nanf";
         } 
         else {
-            std::cout  << static_cast<float>(value) << "f";
+            std::cout  << static_cast<float>(value) ;
+            if(check_zero(strchr(literal.c_str(), '.')))
+                std::cout << ".0f";
         }
         std::cout << std::endl;
 
@@ -103,6 +119,8 @@ Type      ScalarConverter::DetectType(const std::string& literal){
         }
         else {
             std::cout << value;
+            if(check_zero(strchr(literal.c_str(), '.')))
+                std::cout << ".0";
         }
         std::cout << std::endl;
 
