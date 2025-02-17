@@ -9,11 +9,11 @@
 #include <cstring>
 
 enum Type {
-CHAR,
-INT,
-FLOAT,
-DOUBLE,
-INVALID
+        CHAR,
+        INT,
+        FLOAT,
+        DOUBLE,
+        INVALID
 };
 
 class ScalarConverter{

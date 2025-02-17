@@ -19,7 +19,7 @@ Type    ScalarConverter::DetectType(const std::string& literal){
     bool isDecimal = false;
     bool isFloat = false;
     
-    if (literal.length() == 1 && !isdigit(literal[0])  && isprint(literal[0]) )
+    if (literal.length() == 1 && isprint(literal[0])  && !isdigit(literal[0]))
             return CHAR;
     if (literal == "nan" || literal == "+inf" || literal == "-inf")
             return DOUBLE;
@@ -93,6 +93,7 @@ int check_zero(const char *literal)
         }
         std::cout << std::endl;
 
+
         std::cout << "int: ";
         if (std::isnan(value) || std::isinf(value) || 
             value > static_cast<double>(std::numeric_limits<int>::max()) || 
@@ -102,6 +103,7 @@ int check_zero(const char *literal)
             std::cout << static_cast<int>(value);
         }
         std::cout << std::endl;
+
 
         std::cout << "float: ";
         if (std::isinf(value)) {
@@ -121,6 +123,7 @@ int check_zero(const char *literal)
                 std::cout << "f";
         }
         std::cout << std::endl;
+
 
         std::cout << "double: ";
         if (std::isinf(value)) {

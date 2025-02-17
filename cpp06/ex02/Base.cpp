@@ -4,10 +4,8 @@
 #include "B.h"
 #include "C.h"
 
-Base::Base() {}
 
 Base::~Base(){}
-
 
 Base* generate(void) {
 
