@@ -2,7 +2,7 @@ CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
-CPPFILES =  main.cpp  
+CPPFILES =  main.cpp   
 OFILES = ${CPPFILES:.cpp=.o}
 EXECUTABLE = Array
 
