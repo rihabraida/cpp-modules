@@ -51,6 +51,12 @@ template <typename T> class Array {
                 throw std::exception();
             return(ptr[index]);
         }
+        const T& operator[](unsigned int index) const {
+        if (n >= _size) {
+            throw std::exception();
+        }
+        return ptr[index];
+    }
         unsigned int size() const{
             return(n);
         }
