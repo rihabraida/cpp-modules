@@ -21,6 +21,7 @@ template <typename T> class Array {
                 ptr = NULL;
             }
         }
+
         Array(const Array<T> &obj):n(obj.n){
             if(n > 0)
             {    ptr = new T[n];
@@ -31,6 +32,7 @@ template <typename T> class Array {
             else
                 ptr = NULL;
         }
+
         Array<T>& operator=(const Array<T> &other){
             if(this != &other)
             {
@@ -46,6 +48,8 @@ template <typename T> class Array {
             }
             return(*this);
         }
+
+
         T& operator[](unsigned int index){
             if(index >= n)
                 throw std::exception();
@@ -56,7 +60,9 @@ template <typename T> class Array {
             throw std::exception();
         }
         return ptr[index];
-    }
+        }
+
+        
         unsigned int size() const{
             return(n);
         }
