@@ -9,7 +9,7 @@
 
 class Span{
 
-    std::vector<unsigned int> v;
+    std::vector< int> v;
     unsigned int N;
 
 public:
@@ -20,7 +20,14 @@ public:
     void addNumber(unsigned int n);
     unsigned int shortestSpan();
     unsigned int longestSpan();
-    void addRangeNumbers(std::vector<unsigned int> it);
+    template <typename T> 
+    void addRangeNumbers(T begin,T end){
+        int distance = std::distance(begin, end);
+        if(v.size() + distance > N)
+            throw std::exception();
+        v.insert(v.end(), begin,end);
+    }
+    size_t size() const ;
     ~Span();
 
 };

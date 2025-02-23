@@ -7,20 +7,25 @@
 
 template <typename T>
 T max(T x,T y)
- {   
-    return(x < y) ? y : x;
+ {  
+   if(x < y)
+      return(y);
+   return(x);
  }
 
 template <typename T>
 T min(T x,T y)
  {   
-    return(x < y) ? x : y;
+   if(x < y)
+      return(x);
+   return(y);
  }
 
 template <typename T>
 void   swap(T &x, T &y)
 {
     T   a;
+    
     a = x;
     x = y;
     y = a;

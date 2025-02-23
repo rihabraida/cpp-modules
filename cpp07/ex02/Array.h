@@ -7,7 +7,8 @@
 #include <string>
 #include <exception>
 
-template <typename T> class Array {
+template <typename T> 
+class Array {
     private:
         T* ptr;
         unsigned int n;
@@ -56,10 +57,11 @@ template <typename T> class Array {
             return(ptr[index]);
         }
         const T& operator[](unsigned int index) const {
-        if (n >= _size) {
-            throw std::exception();
-        }
-        return ptr[index];
+            
+            if (index >= n) {
+                throw std::exception();
+            }
+            return ptr[index];
         }
 
         
