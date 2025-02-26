@@ -23,7 +23,7 @@ int main(int , char **)
         try {
             std::cout << "Trying to access out-of-bounds index: " << intArray[10] << std::endl;
         } catch (const std::exception &e) {
-            std::cout << "Exception caught: Out of bounds access!" << std::endl;
+            std::cout << "\nException caught: Out of bounds access!" << std::endl;
         }
 
         Array<std::string> strArray(3);
