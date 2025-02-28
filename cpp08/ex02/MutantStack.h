@@ -7,6 +7,7 @@
 #include <string>
 #include <exception>
 #include <vector>
+#include <stack>
 #include <bits/stdc++.h>
 
 
@@ -17,8 +18,35 @@ class MutantStack{
     std::vector<T> container;
 public:
 
-    MutantStack();
-
+    MutantStack(){
+      
+    }
+    MutantStack(const MutantStack& other) : container(other.container) {}
+    ~MutantStack(){}
+    MutantStack& operator=( const MutantStack& other )
+    {
+        if(this != &other)
+            this->container = other.container;
+        return(*this);
+    }
+    bool operator==( const MutantStack& other ){
+        return(container == other.container);
+    }
+    bool operator!=( const MutantStack& other ){
+        return(container != other.container);
+    } 
+    bool operator<( const MutantStack& other ){
+        return(container < other.container);
+    }
+    bool operator<=( const MutantStack& other ){
+        return(container <= other.container);
+    }
+    bool operator>( const MutantStack& other ){
+        return(container > other.container);
+    }
+    bool operator>=( const MutantStack& other ){
+        return(container >= other.container);
+    }
     bool empty() const{
         if(!container.size())
             return(true);
@@ -31,17 +59,50 @@ public:
         container.pop_back();
     }
 
-    T&   top() const{
+    const T&   top() const{
         return(container.back());
     }
-    unsigned int size(){
-        return(container.size())
+    unsigned int size()const{
+        return(container.size());
     }
-    MutantStack<T>::iterator   begin(){
-        return (container.begin());
+   
+    class iterator{
+       typename std::vector<T>::iterator it;
+    public:
+            iterator(typename std::vector<T>::iterator itr): it(itr){}
+            iterator& operator++(){
+                ++it;
+                return(*this);
+           } 
+           iterator& operator--(){
+                --it;
+                return(*this);
+           } 
+           iterator operator++(int){
+                it++;
+                return(*this);
+           }
+            iterator operator--(int){
+                it--;
+                return(*this);
+           }
+           int& operator*(){
+                return *it;
+           }
+           bool operator!=(const iterator& other) const {  
+                return it != other.it;
+            }
+            bool operator==(const iterator& other) const {  
+                return it == other.it;
+            }
+    };
+
+    iterator   begin(){
+        return (iterator(container.begin()));
     }
-    MutantStack<T>::iterator   end(){
-        return (container.end());
+    
+    iterator  end(){
+        return (iterator(container.end()));
     }
     
 };
