@@ -1,23 +1,18 @@
 #include "Span.h"
 
+Span::Span():N(0){}
 
+Span::Span(unsigned int n):N(n){}
 
-
-Span::Span():N(0){
-
-}
-
-Span::Span(unsigned int n):N(n){
-    v.reserve(N);
-}
-
-Span::Span(const Span &other){
-
-}
+Span::Span(const Span &other): N(other.N), v(other.v) {}
 
 Span & Span::operator=(const Span &other)
 {
-
+    if (this != &other) {
+        N = other.N;
+        v = other.v;
+    }
+    return *this;
 }
 void Span::addNumber(unsigned int num){
 
@@ -36,8 +31,8 @@ unsigned int Span::shortestSpan(){
         unsigned int min = sorted[1] - sorted[0];
         for(int i = 1 ; i < sorted.size(); i++)
         {
-            unsigned int diff = sorted[i] - sorted[i + 1];
-            min = std::min(diff, min);
+            unsigned int diff = sorted[i + 1] -  sorted[i];
+            min = std::min( min,diff);
         }
         return(min);
 }
