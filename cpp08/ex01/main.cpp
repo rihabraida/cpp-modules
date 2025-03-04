@@ -5,7 +5,7 @@ int main() {
         srand(time(NULL));
         
         for (int i = 0; i < 10000; ++i) {
-            sp.addNumber(rand() % 100000);  // Add random numbers
+            sp.addNumber(rand() % 100000); 
         }
         
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
