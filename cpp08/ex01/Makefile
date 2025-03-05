@@ -3,9 +3,9 @@ CXX = c++
 
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 
 
-CPPFILES =  main.cpp  
+CPPFILES =  main.cpp  Span.cpp
 OFILES = ${CPPFILES:.cpp=.o}
-EXECUTABLE = EasyFind
+EXECUTABLE = Span
 
 all : $(EXECUTABLE)
 

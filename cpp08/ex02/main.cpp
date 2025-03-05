@@ -31,7 +31,26 @@ int main()
     std::cout << "Standard stack size: " << s.size() << std::endl;
     
 
+    std::cout << "\n=== Testing MutantStack with strings ===" << std::endl;
+    MutantStack<std::string> sstack;
     
+    sstack.push("Hello");
+    sstack.push("1337");
+    sstack.push("community!!");
+    
+    std::cout << "Top element: " << sstack.top() << std::endl;
+    std::cout << "Size: " << sstack.size() << std::endl;
+    
+    std::cout << "Content: ";
+    for (MutantStack<std::string>::iterator it = sstack.begin(); it != sstack.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+    
+    sstack.pop();
+    std::cout << "After pop, top element: " << sstack.top() << std::endl;
+    
+
     std::cout << "\n===== Testing std::list =====" << std::endl;
     std::list<int> lst;
     lst.push_back(5);
@@ -57,5 +76,6 @@ int main()
         std::cout << *lst_it << std::endl;
         ++lst_it;
     }
+
 return 0;
 }

@@ -29,10 +29,10 @@ unsigned int Span::shortestSpan(){
         std::sort(sorted.begin(),sorted.end());
 
         unsigned int min = sorted[1] - sorted[0];
-        for(int i = 1 ; i < sorted.size(); i++)
+        for(size_t i = 1 ; i < sorted.size(); i++)
         {
             unsigned int diff = sorted[i + 1] -  sorted[i];
-            min = std::min( min,diff);
+            min = std::min(min,diff);
         }
         return(min);
 }

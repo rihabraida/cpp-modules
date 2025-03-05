@@ -9,8 +9,8 @@
 
 class Span{
 
-    std::vector< int> v;
     unsigned int N;
+    std::vector< int> v;
 
 public:
     Span();
